@@ -1,0 +1,2482 @@
+<!doctype html>
+<html lang="es-GT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matemática 2do Primaria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&family=Open+Sans:wght@400;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   Sitio de clase - estilo Liceo Tec
+   Cambia los colores aquí: todo el sitio usa estas variables.
+   ========================================================== */
+:root {
+  --pizarra: #2e3340;      /* banner y círculos */
+  --naranja: #e07a2c;      /* acento, encabezados, banda, pie */
+  --naranja-osc: #c4651c;
+  --texto: #212121;
+  --fondo: #ffffff;
+  --gris-suave: #f4f5f7;
+  --borde: #e3e5e9;
+  --blanco: #ffffff;
+  /* colores de los minijuegos (llamativos) */
+  --j-verde: #34c759;
+  --j-rojo: #ff4d4f;
+  --j-azul: #2f8cff;
+  --j-amarillo: #ffcc00;
+  --j-morado: #8e5cf7;
+  --j-rosa: #ff5fa2;
+  --j-turquesa: #14c4c4;
+  --ancho: 1000px;
+  --f-titulo: 'Roboto', Arial, sans-serif;
+  --f-texto: 'Open Sans', Arial, sans-serif;
+  --f-cursiva: 'Lato', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--f-texto);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+img, svg { max-width: 100%; }
+a { color: var(--naranja); }
+h1, h2, h3, h4 { font-family: var(--f-titulo); line-height: 1.25; }
+button { font-family: var(--f-titulo); }
+
+/* ---------- Encabezado ---------- */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: transparent; color: #fff;
+  transition: background .25s, box-shadow .25s, color .25s;
+}
+.header.scrolled { background: #fff; color: var(--naranja); box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.header-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 16px;
+  display: flex; align-items: center; justify-content: space-between; height: 64px;
+}
+.brand { font-family: var(--f-titulo); font-weight: 700; font-size: 18px; color: inherit; text-decoration: none; letter-spacing: .3px; }
+.nav { display: flex; gap: 4px; align-items: center; }
+.nav-item { position: relative; }
+.nav-link {
+  display: flex; align-items: center; gap: 4px;
+  color: inherit; text-decoration: none; font-family: var(--f-titulo); font-size: 15px; font-weight: 500;
+  padding: 10px 14px; background: none; border: 0; cursor: pointer; border-radius: 4px;
+}
+.nav-link:hover, .nav-link:focus-visible { background: rgba(255,255,255,.15); }
+.header.scrolled .nav-link:hover { background: rgba(224,122,44,.1); }
+.nav-link svg { width: 14px; height: 14px; }
+.dropdown {
+  display: none; position: absolute; top: 100%; left: 0; min-width: 230px;
+  background: #fff; border-radius: 4px; box-shadow: 0 6px 18px rgba(0,0,0,.18); padding: 6px 0; z-index: 60;
+}
+.nav-item:hover .dropdown, .nav-item.open .dropdown, .nav-item:focus-within .dropdown { display: block; }
+.dropdown a { display: block; padding: 9px 18px; color: var(--texto); text-decoration: none; font-size: 15px; }
+.dropdown a:hover { background: var(--gris-suave); color: var(--naranja); }
+.hamburger { display: none; background: none; border: 0; color: inherit; cursor: pointer; padding: 8px; }
+.hamburger svg { width: 28px; height: 28px; }
+
+@media (max-width: 760px) {
+  .hamburger { display: block; }
+  .nav {
+    display: none; position: absolute; top: 64px; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: #fff; box-shadow: 0 8px 16px rgba(0,0,0,.15); padding: 8px 0;
+    max-height: calc(100vh - 64px); overflow-y: auto;
+  }
+  .nav.open { display: flex; }
+  .nav-link { color: var(--texto); padding: 12px 20px; width: 100%; justify-content: space-between; }
+  .nav-item:hover .dropdown { display: none; }
+  .nav-item.open .dropdown { display: block; }
+  .dropdown { position: static; box-shadow: none; padding: 0 0 6px 16px; }
+}
+
+/* ---------- Banner ---------- */
+.banner {
+  background-color: var(--pizarra);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22260%22%20height%3D%22260%22%20viewBox%3D%220%200%20260%20260%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.11%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%20%3Cg%20transform%3D%22translate(14%2C16)%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2246%22%20height%3D%2232%22%20rx%3D%223%22%2F%3E%3Cpath%20d%3D%22M16%2042h14M23%2032v10%22%2F%3E%3C%2Fg%3E%20%3Cg%20transform%3D%22translate(118%2C24)%22%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%227%22%2F%3E%3Cpath%20d%3D%22M18%202v6M18%2028v6M2%2018h6M28%2018h6M6.7%206.7l4.2%204.2M25.1%2025.1l4.2%204.2M6.7%2029.3l4.2-4.2M25.1%2010.9l4.2-4.2%22%2F%3E%3C%2Fg%3E%20%3Cg%20transform%3D%22translate(200%2C14)%22%3E%3Crect%20x%3D%228%22%20y%3D%228%22%20width%3D%2228%22%20height%3D%2228%22%20rx%3D%223%22%2F%3E%3Crect%20x%3D%2216%22%20y%3D%2216%22%20width%3D%2212%22%20height%3D%2212%22%2F%3E%3Cpath%20d%3D%22M15%202v6M22%202v6M29%202v6M15%2036v6M22%2036v6M29%2036v6M2%2015h6M2%2022h6M2%2029h6M36%2015h6M36%2022h6M36%2029h6%22%2F%3E%3C%2Fg%3E%20%3Cg%20transform%3D%22translate(30%2C110)%22%3E%3Cpath%20d%3D%22M0%2012a30%2030%200%200%201%2042%200M7%2020a20%2020%200%200%201%2028%200M14%2028a10%2010%200%200%201%2014%200%22%2F%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2235%22%20r%3D%222%22%2F%3E%3C%2Fg%3E%20%3Cg%20transform%3D%22translate(124%2C104)%22%3E%3Cpath%20d%3D%22M18%200v40M18%200l-5%207h10zM18%2022l-10-8v-4M18%2030l10-8v-5%22%2F%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222.5%22%2F%3E%3Crect%20x%3D%2225%22%20y%3D%2213%22%20width%3D%226%22%20height%3D%225%22%2F%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2244%22%20r%3D%224%22%2F%3E%3C%2Fg%3E%20%3Cg%20transform%3D%22translate(208%2C100)%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2228%22%20height%3D%2244%22%20rx%3D%2214%22%2F%3E%3Cpath%20d%3D%22M14%200v14M0%2016h28%22%2F%3E%3C%2Fg%3E%20%3Cg%20transform%3D%22translate(20%2C190)%22%3E%3Cpath%20d%3D%22M4%2050l14-14M18%2036l6%206M24%2042l-4%204-12-12%204-4zM24%2030l20-20%206%206-20%2020%22%2F%3E%3C%2Fg%3E%20%3Cg%20transform%3D%22translate(110%2C196)%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2240%22%20height%3D%2228%22%20rx%3D%223%22%2F%3E%3Cpath%20d%3D%22M14%2036h12M20%2028v8%22%2F%3E%3C%2Fg%3E%20%3Cg%20transform%3D%22translate(200%2C190)%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%226%22%2F%3E%3Cpath%20d%3D%22M16%202v5M16%2025v5M2%2016h5M25%2016h5M6%206l3.5%203.5M22.5%2022.5L26%2026M6%2026l3.5-3.5M22.5%209.5L26%206%22%2F%3E%3C%2Fg%3E%20%3C%2Fsvg%3E");
+  background-size: 260px 260px;
+  color: #fff; text-align: center;
+  padding: 130px 16px 70px;
+  min-height: 320px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.banner h1 { margin: 0; font-family: var(--f-titulo); font-weight: 700; font-size: clamp(32px, 6vw, 56px); }
+.banner h1.cursiva { font-family: var(--f-cursiva); font-style: italic; font-weight: 700; }
+.banner .sub { margin: 10px 0 0; font-family: var(--f-titulo); font-size: clamp(18px, 3vw, 24px); letter-spacing: 1px; }
+.banner .frase { margin: 12px 0 0; font-family: var(--f-cursiva); font-style: italic; font-size: clamp(17px, 2.6vw, 21px); max-width: 720px; }
+.barra { width: 112px; height: 5px; background: var(--naranja); margin: 22px auto 0; }
+
+/* ---------- Banda naranja ---------- */
+.banda {
+  background: var(--naranja); color: #fff; text-align: center;
+  padding: 26px 16px;
+}
+.banda h2 { margin: 0; font-family: var(--f-titulo); font-weight: 700; font-size: clamp(21px, 3.4vw, 30px); }
+.banda .cursiva { font-family: var(--f-cursiva); font-style: italic; font-weight: 700; font-size: clamp(19px, 3vw, 26px); margin: 0; }
+.banda-icono { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.banda-icono svg { width: 44px; height: 44px; flex: none; }
+.banda .logo { max-height: 90px; max-width: 260px; display: block; margin: 0 auto; }
+.logo-alt { display: inline-block; border: 2px dashed rgba(255,255,255,.8); padding: 14px 24px; font-family: var(--f-titulo); font-weight: 700; letter-spacing: 1px; }
+
+/* ---------- Contenido ---------- */
+.contenido { max-width: var(--ancho); margin: 0 auto; padding: 40px 16px 56px; }
+.contenido h2 { color: var(--naranja); font-size: 28px; margin: 36px 0 12px; }
+.contenido h2:first-child { margin-top: 0; }
+.contenido h3 { color: var(--naranja); font-size: 21px; margin: 28px 0 8px; }
+.contenido p { margin: 0 0 14px; }
+.justificado { text-align: justify; }
+ul.cuadradas { list-style: square; padding-left: 24px; }
+ul.cuadradas li { margin-bottom: 6px; text-align: justify; }
+ul.cuadradas li::marker { color: var(--naranja); }
+
+.tarjeta { background: #fff; border: 1px solid var(--borde); border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+.tarjeta.ejemplo { border-left: 5px solid var(--naranja); }
+.tarjeta h4 { margin: 0 0 8px; color: var(--pizarra); font-size: 17px; }
+.tarjeta p:last-child { margin-bottom: 0; }
+.diagrama { text-align: center; margin: 18px 0; }
+.diagrama svg { width: 100%; max-width: 620px; height: auto; }
+.diagrama .pie-fig { font-size: 14px; color: #555; margin-top: 4px; }
+
+.tabla-wrap { overflow-x: auto; margin: 16px 0; }
+table { border-collapse: collapse; width: 100%; min-width: 320px; }
+th { background: var(--pizarra); color: #fff; font-family: var(--f-titulo); font-weight: 500; text-align: left; padding: 10px 12px; }
+td { border-bottom: 1px solid var(--borde); padding: 9px 12px; vertical-align: top; }
+tr:nth-child(even) td { background: var(--gris-suave); }
+
+.video { position: relative; padding-top: 56.25%; margin: 16px 0; border-radius: 8px; overflow: hidden; background: #000; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-busqueda { border: 2px dashed var(--borde); border-radius: 8px; padding: 18px 20px; display: flex; gap: 16px; align-items: center; margin: 16px 0; }
+.video-busqueda svg { width: 46px; height: 46px; flex: none; color: var(--naranja); }
+.video-busqueda p { margin: 0 0 6px; }
+
+/* ---------- Círculos (unidades, semanas, visión) ---------- */
+.circulos { display: flex; flex-wrap: wrap; justify-content: center; gap: 48px 64px; padding: 12px 0; }
+.circulo-link { display: flex; flex-direction: column; align-items: center; text-decoration: none; gap: 14px; }
+.circulo {
+  width: 170px; height: 170px; border-radius: 50%; background: var(--pizarra); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-titulo); font-weight: 700; font-size: 76px;
+  transition: transform .2s, box-shadow .2s;
+}
+.circulo-link:hover .circulo, .circulo-link:focus-visible .circulo { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,.25); }
+.etiqueta { color: var(--naranja); font-family: var(--f-titulo); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 18px; }
+.circulo svg { width: 46%; height: 46%; }
+
+/* Visión y misión */
+.vm { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 24px 0; }
+.vm-item { text-align: center; }
+.vm-item .circulo { width: 140px; height: 140px; margin: 0 auto 14px; }
+.vm-item h3 { margin-top: 0; }
+.vm-item p { text-align: justify; }
+@media (max-width: 700px) { .vm { grid-template-columns: 1fr; } }
+
+.perfil { display: grid; grid-template-columns: 1fr 180px; gap: 28px; align-items: center; }
+.perfil .icono-grande { color: var(--pizarra); }
+.perfil .icono-grande svg { width: 100%; height: auto; }
+@media (max-width: 700px) { .perfil { grid-template-columns: 1fr; } .perfil .icono-grande { max-width: 130px; margin: 0 auto; order: -1; } }
+
+/* Desplegable (bienvenida y semanas) */
+.desplegar-btn {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  background: none; border: 0; padding: 4px 0; cursor: pointer; text-align: left;
+  color: var(--naranja); font-family: var(--f-titulo); font-weight: 700; font-size: 24px;
+}
+.desplegar-btn svg { width: 28px; height: 28px; transition: transform .25s; flex: none; }
+.desplegar-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.desplegable { display: none; padding-top: 10px; }
+.desplegable.abierto { display: block; }
+
+.semana-fila { display: grid; grid-template-columns: 96px 1fr; gap: 22px; align-items: start; padding: 18px 0; }
+.semana-fila .circulo { width: 90px; height: 90px; font-size: 40px; }
+.semana-fila .circulo-link { gap: 0; }
+.semana-fila .linea { border-bottom: 2px solid var(--borde); padding-bottom: 14px; padding-top: 22px; }
+.semana-fila .desplegable p { margin: 0 0 10px; }
+.btn-ir {
+  display: inline-block; background: var(--naranja); color: #fff; text-decoration: none;
+  padding: 9px 22px; border-radius: 4px; font-family: var(--f-titulo); font-weight: 500;
+}
+.btn-ir:hover { background: var(--naranja-osc); }
+@media (max-width: 480px) {
+  .semana-fila { grid-template-columns: 64px 1fr; gap: 14px; }
+  .semana-fila .circulo { width: 62px; height: 62px; font-size: 28px; }
+  .semana-fila .linea { padding-top: 12px; }
+  .desplegar-btn { font-size: 21px; }
+  .circulo { width: 140px; height: 140px; font-size: 62px; }
+}
+
+/* Secciones de semana */
+.seccion { margin-top: 44px; }
+.seccion > h2 { border-bottom: 3px solid var(--naranja); padding-bottom: 6px; }
+
+/* Fases de proyecto */
+.fase-contenido { max-width: var(--ancho); margin: 0 auto; padding: 30px 16px 40px; }
+.fase-contenido .obj { color: var(--naranja); font-family: var(--f-titulo); font-weight: 700; font-size: 20px; margin-bottom: 6px; }
+.fase-contenido .instr { font-weight: 700; font-family: var(--f-titulo); font-size: 18px; margin: 18px 0 6px; }
+.checklist { list-style: none; padding: 0; }
+.checklist li { margin: 8px 0; }
+.checklist label { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+.checklist input { width: 22px; height: 22px; accent-color: var(--naranja); flex: none; margin-top: 2px; }
+.galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; margin: 20px 0; }
+.galeria-slot { aspect-ratio: 4/3; border: 2px dashed var(--borde); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #777; text-align: center; padding: 12px; font-size: 15px; }
+.galeria-slot svg { width: 48px; height: 48px; color: #aab; margin-bottom: 8px; }
+
+/* ---------- Pie ---------- */
+.pie { background: var(--naranja); padding: 34px 16px; }
+.pie-inner { max-width: var(--ancho); margin: 0 auto; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.btn-blanco {
+  display: inline-block; background: #fff; color: var(--naranja); text-decoration: none; text-align: center;
+  font-family: var(--f-titulo); font-weight: 700; font-size: 17px;
+  padding: 14px 20px; border-radius: 4px; min-width: 280px; transition: transform .15s, box-shadow .15s;
+}
+.btn-blanco:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.18); }
+@media (max-width: 400px) { .btn-blanco { min-width: 0; width: 100%; } }
+
+/* ---------- Modo incrustado (Google Sites) ---------- */
+body.embed { background: #fff; }
+body.embed .contenido { padding-top: 20px; }
+
+/* ==========================================================
+   MINIJUEGOS
+   ========================================================== */
+.juego {
+  border-radius: 18px; overflow: hidden; margin: 22px 0 34px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.12); background: #fff; border: 3px solid var(--j-azul);
+  font-family: var(--f-titulo);
+}
+.juego-head {
+  background: linear-gradient(90deg, var(--j-morado), var(--j-azul)); color: #fff;
+  padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.juego-head h3 { margin: 0; color: #fff; font-size: 22px; }
+.juego-marcador { display: flex; gap: 10px; align-items: center; font-weight: 700; font-size: 16px; }
+.pill { background: rgba(255,255,255,.22); border-radius: 999px; padding: 4px 12px; display: inline-flex; align-items: center; gap: 6px; }
+.pill svg { width: 18px; height: 18px; }
+.juego-body { padding: 18px; position: relative; }
+.instrucciones {
+  background: #fff8e1; border: 3px dashed var(--j-amarillo); border-radius: 14px; padding: 14px 18px; margin-bottom: 16px;
+  font-family: var(--f-texto); font-size: 17px;
+}
+.instrucciones strong { font-family: var(--f-titulo); color: #b26a00; display: block; font-size: 18px; margin-bottom: 4px; }
+.instrucciones ol { margin: 6px 0 0; padding-left: 22px; }
+.btn-jugar, .btn-j {
+  border: 0; cursor: pointer; border-radius: 999px; font-weight: 700; color: #fff;
+  padding: 13px 30px; font-size: 20px; background: var(--j-verde);
+  box-shadow: 0 5px 0 #23913f; transition: transform .1s, box-shadow .1s;
+}
+.btn-jugar:active, .btn-j:active { transform: translateY(4px); box-shadow: 0 1px 0 #23913f; }
+.btn-j.azul { background: var(--j-azul); box-shadow: 0 5px 0 #1c64c0; }
+.btn-j.naranja { background: var(--naranja); box-shadow: 0 5px 0 var(--naranja-osc); }
+.btn-j.chico { font-size: 16px; padding: 9px 20px; }
+.centro { text-align: center; }
+.pregunta {
+  text-align: center; font-size: clamp(24px, 5vw, 36px); font-weight: 900; color: var(--pizarra);
+  background: #fff; border-radius: 14px; padding: 10px 14px; margin: 0 auto 10px; max-width: 640px;
+  box-shadow: 0 3px 0 rgba(0,0,0,.08);
+}
+.pregunta .fig { display: block; margin: 6px auto 0; max-width: 420px; }
+.pregunta .fig svg { width: 100%; height: auto; max-height: 190px; }
+.escena { position: relative; border-radius: 14px; overflow: hidden; min-height: 360px; user-select: none; -webkit-user-select: none; }
+.feedback { text-align: center; font-size: 22px; font-weight: 900; min-height: 34px; margin-top: 10px; }
+.feedback.bien { color: #1f9d48; }
+.feedback.mal { color: #e5383b; }
+.progreso { height: 12px; border-radius: 999px; background: #e9ecf3; overflow: hidden; margin: 10px 0 14px; }
+.progreso > div { height: 100%; background: linear-gradient(90deg, var(--j-verde), var(--j-amarillo)); width: 0; transition: width .4s; }
+
+/* Rana */
+.escena-rana { background: linear-gradient(#bfefff 0 30%, #3fb3e8 30% 100%); }
+.escena-rana .orilla { position: absolute; left: 0; right: 0; bottom: 0; height: 70px; background: #6cc644; border-top: 6px solid #4a9e2c; }
+.nenufares { position: absolute; left: 0; right: 0; top: 42%; display: flex; justify-content: space-around; padding: 0 10px; }
+.nenufar {
+  width: 112px; height: 84px; border: 0; cursor: pointer; background: none; position: relative; padding: 0;
+  animation: flotar 2.8s ease-in-out infinite;
+}
+.nenufar:nth-child(2) { animation-delay: .5s; } .nenufar:nth-child(3) { animation-delay: 1s; }
+.nenufar svg { width: 100%; height: 100%; position: absolute; inset: 0; }
+.nenufar span { position: relative; z-index: 2; font-size: 30px; font-weight: 900; color: #fff; text-shadow: 0 2px 0 #2c6e1a, 0 0 6px #2c6e1a; line-height: 84px; }
+.nenufar.hunde { animation: hundir .8s forwards; }
+.nenufar.brilla svg { filter: drop-shadow(0 0 12px #fff700); }
+.rana { position: absolute; width: 96px; height: 80px; left: calc(50% - 48px); bottom: 26px; transition: left .6s ease-in-out, bottom .6s ease-in-out; z-index: 5; pointer-events: none; }
+.rana.salta { animation: saltoRana .6s ease-in-out; }
+.rana svg { width: 100%; height: 100%; }
+@keyframes flotar { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-7px) } }
+@keyframes hundir { to { transform: translateY(40px) scale(.6); opacity: .2 } }
+@keyframes saltoRana { 0% { transform: translateY(0) } 50% { transform: translateY(-90px) scale(1.1) } 100% { transform: translateY(0) } }
+
+/* Avión */
+.escena-avion { background: linear-gradient(#5ec8ff, #c9f0ff); }
+.sol { position: absolute; right: 18px; top: 14px; width: 60px; height: 60px; }
+.avion { position: absolute; left: 4%; top: 45%; width: 130px; transition: left .7s ease-in, top .7s ease-in-out; z-index: 4; pointer-events: none; animation: vaiven 2s ease-in-out infinite; }
+.avion svg { width: 100%; }
+@keyframes vaiven { 0%,100% { margin-top: 0 } 50% { margin-top: -10px } }
+.nubes { position: absolute; right: 3%; top: 6%; bottom: 6%; width: 52%; display: flex; flex-direction: column; justify-content: space-around; align-items: flex-end; }
+.nube { width: 160px; height: 84px; border: 0; background: none; position: relative; cursor: pointer; padding: 0; animation: flotar 3s ease-in-out infinite; }
+.nube:nth-child(2) { animation-delay: .7s; margin-right: 40px; } .nube:nth-child(3) { animation-delay: 1.3s; }
+.nube svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.nube span { position: relative; z-index: 2; font-size: 30px; font-weight: 900; color: var(--j-azul); line-height: 84px; }
+.nube.gris svg path { fill: #c5c9d1; }
+.nube.explota { animation: explota .6s forwards; }
+@keyframes explota { 60% { transform: scale(1.35) } 100% { transform: scale(0); opacity: 0 } }
+.sacude { animation: sacude .45s; }
+@keyframes sacude { 20%,60% { transform: translateX(-10px) } 40%,80% { transform: translateX(10px) } }
+
+/* Globos */
+.escena-globos { background: linear-gradient(#ffe3f1, #fff6d6); }
+.globo { position: absolute; bottom: -150px; width: 96px; height: 140px; border: 0; background: none; cursor: pointer; padding: 0; animation: subir linear forwards; }
+.globo svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.globo span { position: relative; z-index: 2; display: block; font-size: 28px; font-weight: 900; color: #fff; text-shadow: 0 2px 2px rgba(0,0,0,.35); padding-top: 32px; }
+.globo.pop { animation: pop .3s forwards !important; }
+@keyframes subir { from { bottom: -150px } to { bottom: 110% } }
+@keyframes pop { to { transform: scale(1.6); opacity: 0 } }
+
+/* Cocodrilo */
+.escena-coco { background: linear-gradient(#d8f7d0, #a8e59a); min-height: 0; padding: 18px 10px; }
+.comparar { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.num-grande { background: #fff; border-radius: 16px; min-width: 110px; padding: 10px 16px; font-size: 48px; font-weight: 900; text-align: center; color: var(--pizarra); box-shadow: 0 4px 0 rgba(0,0,0,.12); }
+.num-grande .fig svg { max-height: 120px; width: 150px; }
+.hueco { width: 96px; height: 80px; border: 4px dashed #3c8d2f; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.5); }
+.hueco svg { width: 90px; }
+.opciones-coco { display: flex; gap: 14px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
+.btn-coco { background: #fff; border: 4px solid #3c8d2f; border-radius: 18px; padding: 6px 10px; cursor: pointer; width: 130px; }
+.btn-coco svg { width: 100%; height: 70px; }
+.btn-coco b { display: block; font-size: 26px; color: #2b6a20; }
+.btn-coco:hover { transform: translateY(-3px); }
+
+/* Ruleta */
+.ruleta-zona { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.ruleta-wrap { position: relative; width: min(320px, 82vw); aspect-ratio: 1; }
+.ruleta-wrap svg.rueda { width: 100%; height: 100%; transition: transform 3.2s cubic-bezier(.17,.67,.21,1); }
+.ruleta-wrap .flecha { position: absolute; top: -10px; left: calc(50% - 20px); width: 40px; z-index: 3; }
+.opciones { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 12px; }
+.btn-op { border: 0; border-radius: 16px; min-width: 96px; padding: 14px 18px; font-size: 26px; font-weight: 900; color: #fff; cursor: pointer; box-shadow: 0 5px 0 rgba(0,0,0,.2); }
+.btn-op:active { transform: translateY(4px); box-shadow: 0 1px 0 rgba(0,0,0,.2); }
+.btn-op svg { width: 90px; height: 70px; display: block; }
+
+/* Emparejar */
+.emparejar { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 26px; }
+.col { display: flex; flex-direction: column; gap: 12px; }
+.ficha {
+  border: 4px solid #d5dae4; border-radius: 16px; background: #fff; cursor: pointer; padding: 10px;
+  font-size: 22px; font-weight: 700; color: var(--pizarra); min-height: 70px; display: flex; align-items: center; justify-content: center; text-align: center;
+  transition: transform .12s, border-color .12s;
+}
+.ficha:hover { transform: scale(1.03); }
+.ficha svg { max-height: 90px; width: auto; max-width: 100%; }
+.ficha.sel { border-color: var(--j-amarillo); background: #fff9d6; transform: scale(1.04); }
+.ficha.hecha { cursor: default; color: #fff; border-color: transparent; }
+.ficha.error { animation: sacude .4s; border-color: var(--j-rojo); }
+@media (max-width: 480px) { .ficha { font-size: 18px; min-height: 60px; padding: 6px; } .emparejar { gap: 10px 12px; } }
+
+/* Memoria */
+.memoria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 640px; margin: 0 auto; }
+@media (max-width: 480px) { .memoria { grid-template-columns: repeat(3, 1fr); } }
+.carta { aspect-ratio: 3/4; perspective: 600px; border: 0; background: none; padding: 0; cursor: pointer; }
+.carta-in { position: relative; width: 100%; height: 100%; transition: transform .45s; transform-style: preserve-3d; }
+.carta.volteada .carta-in, .carta.hecha .carta-in { transform: rotateY(180deg); }
+.cara { position: absolute; inset: 0; border-radius: 14px; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; align-items: center; justify-content: center; padding: 6px; }
+.cara.atras { background: repeating-linear-gradient(45deg, var(--j-morado) 0 12px, #7a48e6 12px 24px); border: 4px solid #fff; box-shadow: 0 3px 8px rgba(0,0,0,.2); }
+.cara.atras svg { width: 44%; color: #fff; }
+.cara.frente { background: #fff; border: 4px solid var(--j-azul); transform: rotateY(180deg); font-size: clamp(18px, 4vw, 26px); font-weight: 900; color: var(--pizarra); text-align: center; }
+.cara.frente svg { width: 92%; max-height: 92%; }
+.carta.hecha .cara.frente { border-color: var(--j-verde); background: #e9fbe9; }
+
+/* Clasificar */
+.clasif-tarjeta { margin: 8px auto 14px; background: #fff; border: 5px solid var(--j-amarillo); border-radius: 18px; padding: 14px; text-align: center; max-width: 320px; font-size: 32px; font-weight: 900; color: var(--pizarra); min-height: 110px; display: flex; align-items: center; justify-content: center; animation: aparecer .3s; }
+.clasif-tarjeta svg { max-height: 120px; width: auto; max-width: 100%; }
+@keyframes aparecer { from { transform: scale(.4); opacity: 0 } }
+.canastas { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+.canasta { border: 0; border-radius: 18px 18px 30px 30px; color: #fff; font-weight: 900; font-size: 19px; padding: 14px 8px 18px; cursor: pointer; box-shadow: 0 6px 0 rgba(0,0,0,.18); min-height: 110px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; }
+.canasta svg { width: 54px; height: 40px; }
+.canasta .cuenta { background: rgba(255,255,255,.3); border-radius: 999px; padding: 0 10px; font-size: 15px; }
+.canasta:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,.18); }
+.reloj { height: 10px; border-radius: 999px; background: #ffe0e0; overflow: hidden; margin-bottom: 10px; }
+.reloj > div { height: 100%; background: linear-gradient(90deg, var(--j-rojo), var(--j-amarillo)); width: 100%; }
+
+/* Ordenar */
+.ordenar-slots, .ordenar-fichas { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 10px 0; }
+.slot { width: 88px; min-height: 76px; border: 4px dashed #b7c0d1; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 900; color: var(--pizarra); background: #f8f9fc; cursor: pointer; padding: 4px; }
+.slot.lleno { border-style: solid; border-color: var(--j-azul); background: #eaf3ff; }
+.slot.ancho, .ficha-o.ancho { width: 100%; max-width: 560px; font-size: 18px; justify-content: flex-start; text-align: left; padding: 10px 14px; }
+.slot .n { color: #9aa3b5; font-size: 16px; margin-right: 10px; }
+.ficha-o { min-width: 88px; min-height: 70px; border: 0; border-radius: 14px; color: #fff; font-size: 26px; font-weight: 900; cursor: pointer; box-shadow: 0 5px 0 rgba(0,0,0,.2); padding: 6px 12px; display: flex; align-items: center; justify-content: center; }
+.ficha-o.usada { visibility: hidden; }
+.slot.bien { border-color: var(--j-verde); background: #e9fbe9; }
+.slot.malo { border-color: var(--j-rojo); background: #ffeaea; }
+
+/* Bloques base 10 */
+.bloques-area { background: #fffdf0; border: 3px solid #ffe28a; border-radius: 14px; min-height: 170px; padding: 12px; display: flex; gap: 18px; align-items: flex-end; flex-wrap: wrap; justify-content: center; }
+.bloques-area .grupo { display: flex; gap: 4px; align-items: flex-end; flex-wrap: wrap; max-width: 100%; }
+.barra-10 { width: 18px; height: 150px; display: grid; grid-template-rows: repeat(10, 1fr); gap: 1px; background: #1c64c0; border: 2px solid #1c64c0; border-radius: 3px; animation: aparecer .25s; }
+.barra-10 i { background: var(--j-azul); }
+.cubo-1 { width: 16px; height: 16px; background: var(--j-amarillo); border: 2px solid #c99a00; border-radius: 3px; animation: aparecer .25s; }
+.unos { display: grid; grid-template-columns: repeat(3, 16px); gap: 3px; }
+.controles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.control { background: #f3f6fb; border-radius: 14px; padding: 10px; text-align: center; }
+.control b { display: block; font-size: 17px; color: var(--pizarra); }
+.control .valor { font-size: 34px; font-weight: 900; color: var(--j-azul); }
+.control button { width: 52px; height: 52px; border-radius: 50%; border: 0; font-size: 30px; font-weight: 900; color: #fff; cursor: pointer; margin: 0 6px; }
+.control .menos { background: var(--j-rojo); } .control .mas { background: var(--j-verde); }
+
+/* Tienda */
+.tienda-prod { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.etiqueta-precio { background: var(--j-rosa); color: #fff; font-size: 34px; font-weight: 900; border-radius: 12px; padding: 6px 18px; transform: rotate(-4deg); box-shadow: 0 4px 0 #c2407a; }
+.prod-img svg { width: 130px; height: 130px; }
+.bandeja { margin: 14px auto; max-width: 560px; min-height: 96px; background: #8d5a3b; border-radius: 14px; padding: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; box-shadow: inset 0 0 0 6px #6d4128; }
+.bandeja .vacia { color: #f3dccb; font-size: 16px; }
+.dinero { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.dinero button, .bandeja button { border: 0; background: none; cursor: pointer; padding: 0; }
+.dinero svg, .bandeja svg { display: block; }
+.total { text-align: center; font-size: 22px; font-weight: 900; color: var(--pizarra); }
+
+/* Gráfica */
+.grafica { display: flex; gap: 14px; justify-content: center; align-items: flex-end; flex-wrap: wrap; margin: 10px 0; }
+.columna-g { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 96px; }
+.pila { display: flex; flex-direction: column-reverse; gap: 4px; min-height: 230px; justify-content: flex-start; background: #f3f6fb; border-radius: 10px; padding: 6px; width: 100%; align-items: center; }
+.pila svg { width: 34px; height: 34px; animation: aparecer .2s; }
+.columna-g .nombre { font-weight: 900; color: var(--pizarra); font-size: 16px; text-align: center; }
+.columna-g .botones button { width: 40px; height: 40px; border-radius: 50%; border: 0; color: #fff; font-size: 22px; font-weight: 900; cursor: pointer; margin: 0 2px; }
+.tabla-conteo { margin: 0 auto 10px; max-width: 460px; }
+
+/* Final del juego */
+.final { text-align: center; padding: 20px 10px; animation: aparecer .4s; }
+.final h4 { font-size: 30px; margin: 6px 0; color: var(--j-morado); }
+.final p { font-size: 19px; margin: 4px 0 14px; font-family: var(--f-texto); }
+.estrellas { display: flex; justify-content: center; gap: 8px; }
+.estrellas svg { width: 62px; height: 62px; }
+.estrellas svg.on { animation: girar .6s; }
+@keyframes girar { from { transform: rotate(-180deg) scale(0) } }
+.confeti { position: absolute; width: 10px; height: 14px; top: -20px; z-index: 20; animation: caer linear forwards; pointer-events: none; }
+@keyframes caer { to { transform: translateY(520px) rotate(720deg); opacity: 0 } }
+.record { font-family: var(--f-texto); font-size: 14px; color: #fff; opacity: .95; }
+
+@media (max-width: 520px) {
+  .escena { min-height: 330px; }
+  .nenufar { width: 92px; height: 72px; } .nenufar span { line-height: 72px; font-size: 25px; }
+  .rana { width: 78px; height: 66px; left: calc(50% - 39px); }
+  .avion { width: 90px; }
+  .nube { width: 120px; height: 66px; } .nube span { line-height: 66px; font-size: 24px; }
+  .nubes { width: 58%; }
+  .globo { width: 80px; height: 118px; } .globo span { font-size: 23px; padding-top: 26px; }
+  .juego-body { padding: 12px; }
+  .btn-coco { width: 96px; } .btn-coco svg { height: 54px; }
+  .num-grande { min-width: 84px; font-size: 38px; }
+  .hueco { width: 76px; height: 66px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nenufar, .nube, .avion { animation: none; }
+}
+
+/* figuras dentro de opciones de juegos */
+.nenufar span svg { width: 52px; height: 52px; vertical-align: middle; }
+.nube span svg { width: 54px; height: 54px; vertical-align: middle; }
+.globo span svg { width: 50px; height: 50px; }
+.btn-op svg { max-height: 80px; }
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+window.PAGINA = {"tipo":"inicio","embed":true};
+/* ==========================================================
+   Datos generales del sitio. Edita los textos libremente.
+   ========================================================== */
+window.SITIO = {
+  titulo: 'Matemática 2do Primaria',
+  subtitulo: 'EduTEC',
+  nombreCorto: 'Matemática 2do',
+  /* Logo: coloca tu archivo en assets/logo.png. Si no existe, se muestra este texto. */
+  logo: 'assets/logo.png',
+  logoAlt: 'LICEO TEC',
+  /* Dirección donde publicarás dist/site/ (termina en /).
+     Se usa en los archivos de dist/embed/ para que los enlaces abran
+     las páginas completas. Ejemplo: 'https://usuario.github.io/clase/' */
+  urlBase: '',
+
+  bienvenida: [
+    'Este es el espacio de la clase de Matemática de 2do Primaria. Aquí encontrarás, semana a semana, los contenidos que aprendemos en clase, minijuegos para practicar desde la computadora o la tableta y las actividades que realizaremos juntos en el aula.',
+    'Para empezar, entra a Contenidos, elige la unidad y luego la semana. En cada semana primero lee el contenido con ayuda de un adulto, después juega los minijuegos y por último prepárate para la actividad en clase.',
+    'En la sección de Proyectos encontrarás el reto de la unidad, sus fases, la lista de avance y la rúbrica con la que se evaluará el trabajo.'
+  ],
+
+  vision: 'Ser una institución educativa líder en el oriente del país, reconocida por formar estudiantes éticos, autónomos, emprendedores y líderes, mediante una propuesta pedagógica innovadora que integra metodologías ágiles, inteligencia emocional, inteligencia artificial, robótica, experimentación e investigación científica.',
+
+  mision: 'Brindar una educación de excelencia que forme estudiantes íntegros, autónomos y emprendedores a través de un modelo innovador que integra metodologías ágiles, inteligencia artificial y robótica. Como institución líder en innovación metodológica, ofrecemos un enfoque moderno, flexible y efectivo de enseñanza-aprendizaje que prepara a nuestros estudiantes para enfrentar con éxito los retos del mundo actual.',
+
+  perfil: [
+    'Es autónomo, actúa con iniciativa, gestiona su propio tiempo y aprendizaje.',
+    'Posee habilidades tecnológicas requeridas para desarrollarse en un contexto competitivo y cambiante.',
+    'Desarrolla el pensamiento crítico, útil en la resolución de conflictos y la toma de decisiones, y posee habilidades de liderazgo y para el trabajo en equipo.',
+    'Aprende números y operaciones matemáticas básicas, como sumas, restas, multiplicación y división, junto con conceptos de cantidad, geometría y medición.'
+  ]
+};
+
+;
+/* ==========================================================
+   PROYECTOS (uno por unidad). Para agregar el de la Unidad 2,
+   copia el bloque completo, cambia u: 2 y sus textos.
+   ========================================================== */
+window.PROYECTOS = window.PROYECTOS || [];
+
+window.PROYECTOS.push({
+  u: 1,
+  titulo: 'Mi Mercado Escolar',
+  frase: 'Cuento, sumo, resto y aprendo a usar mi dinero',
+  objetivo: 'Organizar en equipo una tiendita escolar en la que los estudiantes pongan precios en quetzales, compren y vendan sumando y restando hasta el 100, den vuelto correctamente y registren sus ventas en un pictograma, aplicando lo aprendido en la Unidad 1.',
+
+  fases: [
+    {
+      nombre: 'FASE I: Reto',
+      objetivo: 'Conocer el reto del proyecto y organizar los equipos de trabajo.',
+      parrafo: 'Reto: "Nuestra clase abrirá un mercado escolar. Cada equipo tendrá un puesto con 5 productos. ¿Podrán vender, cobrar y dar vuelto sin equivocarse?"',
+      instrucciones: [
+        'Escucha el reto que presenta la maestra y comenta con tu equipo qué se vende en un mercado de tu comunidad.',
+        'Formen equipos de 4 integrantes y elijan el nombre de su puesto (frutas, librería, juguetes, panadería, etc.).',
+        'Repartan los roles: vendedor, cajero, encargado de precios y encargado de la gráfica de ventas.',
+        'Revisen juntos el cronograma para saber qué haremos cada semana.'
+      ],
+      extra: [{ t: 'cronograma', titulo: 'Cronograma' }]
+    },
+    {
+      nombre: 'FASE II: Investigación',
+      objetivo: 'Investigar precios reales y practicar el uso de monedas y billetes.',
+      parrafo: 'Antes de poner precios, averiguamos cuánto cuestan las cosas y repasamos cómo pagar y dar vuelto.',
+      instrucciones: [
+        'Con ayuda de tu familia, pregunta el precio de 3 productos en una tienda cercana y anótalos en tu cuaderno.',
+        'En clase, comparen los precios con los signos <, > e = y ordénenlos de menor a mayor.',
+        'Practiquen con el minijuego "La tiendita" de la semana 11 a pagar el precio exacto.',
+        'Decidan los 5 productos de su puesto y un precio entre Q1 y Q30 para cada uno.'
+      ]
+    },
+    {
+      nombre: 'FASE III: Creación',
+      objetivo: 'Construir el puesto del mercado con sus productos, etiquetas de precio y caja.',
+      parrafo: 'Cada equipo arma su puesto usando material reciclado y prepara todo lo necesario para vender.',
+      instrucciones: [
+        'Reúnan empaques vacíos y limpios o elaboren los productos con cartón y papel.',
+        'Elaboren etiquetas con el precio de cada producto escrito con la letra Q (por ejemplo, Q12).',
+        'Construyan una caja registradora de cartón y organicen los billetes y monedas de juguete.',
+        'Preparen la hoja de ventas con una columna por producto para marcar cada venta.'
+      ],
+      extra: [{ t: 'entregables', titulo: 'Entregables' }]
+    },
+    {
+      nombre: 'FASE IV: Presentación',
+      objetivo: 'Abrir el mercado escolar, comprar y vender, y presentar los resultados de las ventas.',
+      parrafo: 'El día del mercado, los equipos se turnan para vender y comprar. Al final, cada equipo presenta su gráfica de ventas.',
+      instrucciones: [
+        'Cada comprador recibe Q50 de juguete y compra en los diferentes puestos, sumando lo que gasta.',
+        'El cajero calcula el vuelto con una resta y lo entrega contando el dinero en voz alta.',
+        'Al terminar, el equipo cuenta sus ventas y elabora un pictograma: ¿qué producto se vendió más?',
+        'Presenten su pictograma a la clase y cuenten qué aprendieron y qué mejorarían.'
+      ],
+      extra: [
+        { t: 'avance', titulo: 'Lista de avance del equipo' },
+        { t: 'rubrica', titulo: 'Rúbrica de evaluación (100 puntos)' }
+      ]
+    }
+  ],
+
+  cronograma: [
+    ['Semana 3', 'Fase I: Reto', 'Presentación del reto, equipos, nombre del puesto y roles.'],
+    ['Semana 6', 'Fase II: Investigación', 'Precios de la tienda de la comunidad; comparar y ordenar precios.'],
+    ['Semana 9', 'Fase III: Creación', 'Construcción del puesto y productos con material reciclado.'],
+    ['Semana 10', 'Fase III: Creación', 'Etiquetas de precios, caja registradora y hoja de ventas.'],
+    ['Semana 11', 'Fase IV: Presentación', 'Día del mercado escolar: comprar, vender y dar vuelto.'],
+    ['Semana 12', 'Fase IV: Presentación', 'Pictograma de ventas y presentación final.']
+  ],
+
+  entregables: [
+    'Lista de 5 productos con sus precios (Fase II).',
+    'Puesto del mercado con productos y etiquetas de precio (Fase III).',
+    'Caja registradora y hoja de ventas (Fase III).',
+    'Pictograma de ventas del equipo (Fase IV).',
+    'Presentación oral de resultados (Fase IV).'
+  ],
+
+  /* La lista de avance se guarda en el navegador (si está permitido). */
+  avance: [
+    'Formamos el equipo y elegimos el nombre del puesto.',
+    'Repartimos los roles.',
+    'Investigamos precios en una tienda.',
+    'Elegimos 5 productos y sus precios.',
+    'Construimos el puesto y los productos.',
+    'Hicimos las etiquetas de precio.',
+    'Preparamos la caja y la hoja de ventas.',
+    'Vendimos y dimos vuelto el día del mercado.',
+    'Hicimos el pictograma de ventas.',
+    'Presentamos nuestros resultados.'
+  ],
+
+  /* [criterio, descripción, puntos]. La suma debe dar 100. */
+  rubrica: [
+    ['Precios y etiquetas', 'Los 5 productos tienen precio entre Q1 y Q30, bien escrito con la letra Q y legible.', 15],
+    ['Sumas correctas', 'Suma correctamente el total de una compra de dos o más productos.', 20],
+    ['Restas y vuelto', 'Calcula y entrega el vuelto correcto, contando el dinero en voz alta.', 20],
+    ['Uso de monedas y billetes', 'Reconoce los billetes y monedas y usa equivalencias (por ejemplo, Q10 = 2 de Q5).', 15],
+    ['Pictograma de ventas', 'Registra las ventas y las muestra en un pictograma con título y nombres.', 15],
+    ['Trabajo en equipo', 'Cumple su rol, respeta turnos y ayuda a sus compañeros.', 10],
+    ['Presentación oral', 'Explica con claridad qué producto se vendió más y qué aprendió.', 5]
+  ],
+
+  galeriaTexto: 'En esta galería se publican las fotografías del proyecto Mi Mercado Escolar. Pide autorización a las familias antes de publicar fotos donde se vean los rostros de los estudiantes.',
+  galeria: ['Nuestros equipos', 'Productos y etiquetas', 'La caja registradora', 'El día del mercado', 'Pictogramas de ventas', 'Presentación final']
+});
+
+;
+/* ==========================================================
+   UNIDAD 1 - Matemática 2do Primaria
+   "Los números me ayudan a organizar y comprender mi entorno"
+   Basado en la Planificación Anual 2027 (Liceo Tec).
+
+   Cómo editar:
+   - contenido: lista de bloques ({t:'p'}, {t:'h3'}, {t:'lista'}, {t:'ejemplo'},
+     {t:'fig'}, {t:'figs'}, {t:'tabla'}, {t:'video'}).
+   - juegos: lista de minijuegos (ver README para cada tipo).
+   - clase: actividad en el aula, o null si esa semana no tiene.
+   ========================================================== */
+window.UNIDADES = window.UNIDADES || [];
+
+/* atajos para figuras */
+var F = {
+  tri: function (c) { return { fig: 'figura', forma: 'triangulo', color: c || '#ff4d4f' }; },
+  cua: function (c) { return { fig: 'figura', forma: 'cuadrado', color: c || '#2f8cff' }; },
+  rec: function (c) { return { fig: 'figura', forma: 'rectangulo', color: c || '#34c759' }; },
+  cir: function (c) { return { fig: 'figura', forma: 'circulo', color: c || '#ffb300' }; },
+  rom: function (c) { return { fig: 'figura', forma: 'rombo', color: c || '#8e5cf7' }; },
+  ova: function (c) { return { fig: 'figura', forma: 'ovalo', color: c || '#ff5fa2' }; }
+};
+
+window.UNIDADES.push({
+  n: 1,
+  titulo: 'Los números me ayudan a organizar y comprender mi entorno',
+  competencia: 'Comprende, representa, compara y ordena números hasta el 100, utilizando material concreto, el valor posicional y patrones numéricos. Aplica la suma, la resta, la medición, la geometría, los datos y el dinero para resolver situaciones de la vida cotidiana.',
+  semanas: [
+
+    /* ---------------------------------------------------- SEMANA 1 */
+    {
+      n: 1,
+      titulo: 'Contamos de 2 en 2, de 5 en 5 y de 10 en 10',
+      resumen: 'Repasamos la secuencia de los números hasta el 100 y aprendemos a contar más rápido dando saltos.',
+      contenido: [
+        { t: 'h3', x: 'Los números van en orden' },
+        { t: 'p', x: 'Los números siguen un orden: cada número es <b>uno más</b> que el anterior. Después del 9 viene el 10, después del 19 viene el 20 y después del 99 viene el 100.' },
+        { t: 'h3', x: 'Contar dando saltos' },
+        { t: 'p', x: 'Cuando hay muchos objetos, podemos contar más rápido si damos <b>saltos</b>. En lugar de contar de uno en uno, contamos de 2 en 2, de 5 en 5 o de 10 en 10.' },
+        { t: 'fig', fig: { fig: 'recta', desde: 0, hasta: 20, paso: 1, saltos: 2 }, pie: 'Contamos de 2 en 2: 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20' },
+        { t: 'fig', fig: { fig: 'recta', desde: 0, hasta: 50, paso: 5, saltos: 1 }, pie: 'Contamos de 5 en 5: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50' },
+        { t: 'tabla', cab: ['Contar de...', 'Así suena', 'Sirve para contar...'], filas: [
+          ['2 en 2', '2, 4, 6, 8, 10, 12...', 'zapatos, calcetines, ojos'],
+          ['5 en 5', '5, 10, 15, 20, 25...', 'dedos de una mano'],
+          ['10 en 10', '10, 20, 30, 40, 50...', 'grupos de 10 palitos, decenas']
+        ] },
+        { t: 'ejemplo', titulo: 'Ejemplo', x: '¿Cuántas manzanas hay? Cuenta de 5 en 5 por cada fila: <b>5, 10, 15</b>. ¡Hay 15 manzanas!', fig: { fig: 'objetos', n: 15, tipo: 'manzana', porFila: 5 } },
+        { t: 'video', titulo: 'Contar de 2 en 2, de 5 en 5 y de 10 en 10', busqueda: 'contar de 2 en 2 de 5 en 5 de 10 en 10 para niños' }
+      ],
+      juegos: [
+        {
+          tipo: 'rana', titulo: 'La ranita saltarina',
+          instrucciones: ['Lee los números de arriba y piensa cuál sigue.', 'Toca la hoja que tiene el número correcto.', 'Si aciertas, la ranita salta feliz. Si no, ¡intenta otra vez!'],
+          preguntas: [
+            { q: '2, 4, 6, __', ops: [7, 8, 10], r: 8, pista: 'cuenta de 2 en 2' },
+            { q: '10, 20, 30, __', ops: [40, 31, 35], r: 40, pista: 'cuenta de 10 en 10' },
+            { q: '5, 10, 15, __', ops: [16, 20, 25], r: 20, pista: 'cuenta de 5 en 5' },
+            { q: '12, 14, 16, __', ops: [17, 18, 20], r: 18 },
+            { q: '35, 40, 45, __', ops: [50, 46, 55], r: 50 },
+            { q: '60, 70, 80, __', ops: [90, 81, 100], r: 90 },
+            { q: '48, 49, __', ops: [50, 40, 59], r: 50 },
+            { q: '23, 33, 43, __', ops: [53, 44, 63], r: 53, pista: 'solo cambia el número de las decenas' }
+          ]
+        },
+        {
+          tipo: 'ordenar', titulo: 'Tren de números', q: 'Ordena de menor a mayor',
+          instrucciones: ['Toca los números en orden, empezando por el más pequeño.', 'Si te equivocas, toca la casilla para quitar el número.', 'Cuando estén todos, presiona Comprobar.'],
+          rondas: [
+            { items: [12, 25, 38, 47, 60] },
+            { items: [5, 15, 50, 55, 95] },
+            { items: [13, 31, 33, 34, 43] }
+          ]
+        }
+      ],
+      clase: null
+    },
+
+    /* ---------------------------------------------------- SEMANA 2 */
+    {
+      n: 2,
+      titulo: 'Decenas y unidades: el valor posicional',
+      resumen: 'Agrupamos de 10 en 10 para formar decenas y descubrimos que cada cifra vale según el lugar donde está.',
+      contenido: [
+        { t: 'h3', x: '10 unidades forman 1 decena' },
+        { t: 'p', x: 'Una <b>unidad</b> es un solo objeto. Cuando juntamos <b>10 unidades</b>, formamos <b>1 decena</b>. Con bloques, la decena es una barra de 10 cubitos.' },
+        { t: 'figs', ancho: 150, figs: [
+          { fig: 'bloques', n: 1, nombre: '1 unidad' },
+          { fig: 'bloques', n: 10, nombre: '1 decena = 10 unidades' }
+        ] },
+        { t: 'h3', x: 'Cada cifra vale según su lugar' },
+        { t: 'p', x: 'En el número <b>34</b>, el <b>3</b> está en el lugar de las decenas y vale 30. El <b>4</b> está en el lugar de las unidades y vale 4. Por eso: 34 = 30 + 4.' },
+        { t: 'fig', fig: { fig: 'valorPosicional', n: 34 }, pie: '34 = 3 decenas y 4 unidades' },
+        { t: 'fig', fig: { fig: 'bloques', n: 34 }, pie: '3 barras de 10 y 4 cubitos' },
+        { t: 'tabla', cab: ['Número', 'Decenas', 'Unidades', 'Se lee'], filas: [
+          ['25', '2', '5', 'veinticinco'],
+          ['48', '4', '8', 'cuarenta y ocho'],
+          ['70', '7', '0', 'setenta'],
+          ['91', '9', '1', 'noventa y uno']
+        ] },
+        { t: 'ejemplo', titulo: '¡Ojo!', x: '<b>45</b> y <b>54</b> tienen las mismas cifras, pero no valen lo mismo. 45 tiene 4 decenas; 54 tiene 5 decenas.' },
+        { t: 'video', titulo: 'Decenas y unidades para niños', busqueda: 'decenas y unidades para niños valor posicional' }
+      ],
+      juegos: [
+        {
+          tipo: 'bloques', titulo: 'Constructor de números',
+          instrucciones: ['Mira el número que debes formar.', 'Usa + y - para poner barras de 10 (decenas) y cubitos (unidades).', 'Presiona Comprobar cuando creas que está listo.'],
+          rondas: [23, 41, 16, 57, 70, 38]
+        },
+        {
+          tipo: 'emparejar', titulo: 'Une las parejas',
+          instrucciones: ['Toca una tarjeta de la izquierda.', 'Luego toca la tarjeta de la derecha que vale lo mismo.', 'Las parejas correctas se pintan del mismo color.'],
+          pares: [
+            [34, '3 decenas y 4 unidades'],
+            [{ fig: 'bloques', n: 25 }, 25],
+            [52, '5 decenas y 2 unidades'],
+            [{ fig: 'bloques', n: 41 }, 41],
+            [60, '6 decenas y 0 unidades'],
+            [{ fig: 'bloques', n: 17 }, 17]
+          ]
+        }
+      ],
+      clase: {
+        titulo: 'Constructores de números',
+        descripcion: 'Con palitos, tapitas o bloques formamos números de dos cifras, los descomponemos en decenas y unidades y los comparamos con los signos <, > e =.',
+        materiales: ['Palitos de paleta o pajillas', 'Ligas o hules para amarrar grupos de 10', 'Tapitas de colores', 'Tarjetas con números del 10 al 99'],
+        pasos: [
+          'En parejas, cada estudiante saca una tarjeta con un número.',
+          'Forma su número: amarra grupos de 10 palitos para las decenas y deja sueltos los palitos de las unidades.',
+          'Dice en voz alta: "Mi número tiene ___ decenas y ___ unidades".',
+          'La pareja compara sus dos números y coloca entre ellos la tarjeta con el signo correcto (<, > o =).'
+        ],
+        cierre: '¿Por qué es más fácil contar palitos cuando están amarrados de 10 en 10?'
+      }
+    },
+
+    /* ---------------------------------------------------- SEMANA 3 */
+    {
+      n: 3,
+      titulo: 'Comparamos números: mayor, menor e igual',
+      resumen: 'Usamos los signos >, < e = para comparar cantidades y números hasta el 100.',
+      contenido: [
+        { t: 'h3', x: 'Los signos para comparar' },
+        { t: 'tabla', cab: ['Signo', 'Se lee', 'Ejemplo'], filas: [
+          ['<b style="font-size:22px">&gt;</b>', 'mayor que', '8 &gt; 3'],
+          ['<b style="font-size:22px">&lt;</b>', 'menor que', '25 &lt; 52'],
+          ['<b style="font-size:22px">=</b>', 'igual a', '40 = 40']
+        ] },
+        { t: 'p', x: 'Un truco: imagina que el signo es la boca de un cocodrilo con mucha hambre. ¡El cocodrilo siempre abre la boca hacia el número <b>más grande</b>!' },
+        { t: 'h3', x: '¿Cómo comparo números de dos cifras?' },
+        { t: 'lista', items: [
+          'Primero miro las <b>decenas</b>. El que tiene más decenas es el mayor: 62 &gt; 48 porque 6 decenas es más que 4 decenas.',
+          'Si las decenas son iguales, miro las <b>unidades</b>: 35 &lt; 38 porque 5 unidades es menos que 8 unidades.',
+          'Si las decenas y las unidades son iguales, los números son <b>iguales</b>.'
+        ] },
+        { t: 'ejemplo', titulo: 'Ejemplo con bloques', x: '23 tiene 2 decenas y 32 tiene 3 decenas. Entonces <b>23 &lt; 32</b>.', fig: { fig: 'bloques', n: 23 } },
+        { t: 'video', titulo: 'Mayor que, menor que e igual', busqueda: 'mayor que menor que igual para niños cocodrilo' }
+      ],
+      juegos: [
+        {
+          tipo: 'cocodrilo', titulo: 'El cocodrilo hambriento',
+          instrucciones: ['Mira los dos números.', 'Elige el cocodrilo que abre la boca hacia el número mayor. Si son iguales, elige el signo =.', '¡Completa todas las comparaciones!'],
+          preguntas: [
+            { a: 45, b: 54 }, { a: 72, b: 27 }, { a: 30, b: 30 }, { a: 89, b: 98 },
+            { a: 61, b: 16 }, { a: 50, b: 49 },
+            { a: { fig: 'bloques', n: 23 }, b: { fig: 'bloques', n: 32 } },
+            { a: { fig: 'objetos', n: 7, tipo: 'estrella', porFila: 4 }, b: { fig: 'objetos', n: 5, tipo: 'estrella', porFila: 4 } }
+          ]
+        },
+        {
+          tipo: 'clasificar', titulo: 'Clasifica rápido', tiempo: 60,
+          instrucciones: ['Aparece un número en la tarjeta amarilla.', 'Tócale a la canasta correcta: menor que 50 o mayor que 50.', 'Tienes 60 segundos. ¡Rápido!'],
+          grupos: ['Menor que 50', 'Mayor que 50'],
+          items: [
+            { x: 12, g: 0 }, { x: 48, g: 0 }, { x: 51, g: 1 }, { x: 77, g: 1 }, { x: 9, g: 0 }, { x: 63, g: 1 },
+            { x: 35, g: 0 }, { x: 99, g: 1 }, { x: 26, g: 0 }, { x: 84, g: 1 }, { x: 41, g: 0 }, { x: 70, g: 1 }
+          ]
+        }
+      ],
+      clase: null
+    },
+
+    /* ---------------------------------------------------- SEMANA 4 */
+    {
+      n: 4,
+      titulo: 'La suma: juntamos y agregamos',
+      resumen: 'Sumamos para juntar grupos o agregar objetos. Practicamos sumas de una y dos cifras sin llevar.',
+      contenido: [
+        { t: 'h3', x: '¿Qué es sumar?' },
+        { t: 'p', x: 'Sumar es <b>juntar</b> dos o más grupos, o <b>agregar</b> objetos a un grupo, para saber cuántos hay en total. Usamos el signo <b>+</b> (más) y el signo <b>=</b> (igual).' },
+        { t: 'ejemplo', titulo: 'Juntamos', x: 'Tengo 3 pelotas y me regalan 4. ¿Cuántas tengo? <b>3 + 4 = 7</b>', fig: { fig: 'objetos', n: 7, tipo: 'pelota', porFila: 7 } },
+        { t: 'h3', x: 'Las partes de la suma' },
+        { t: 'tabla', cab: ['3', '+', '4', '=', '7'], filas: [['sumando', '', 'sumando', '', 'total o suma']] },
+        { t: 'h3', x: 'Sumamos números de dos cifras' },
+        { t: 'p', x: 'Para sumar <b>34 + 15</b> escribimos un número debajo del otro: unidades debajo de unidades y decenas debajo de decenas. Primero sumamos las unidades y luego las decenas.' },
+        { t: 'tabla', cab: ['', 'D', 'U'], filas: [['', '3', '4'], ['+', '1', '5'], ['<b>=</b>', '<b>4</b>', '<b>9</b>']] },
+        { t: 'p', x: 'Unidades: 4 + 5 = 9. Decenas: 3 + 1 = 4. Entonces <b>34 + 15 = 49</b>.' },
+        { t: 'video', titulo: 'La suma para niños', busqueda: 'la suma para niños de segundo primaria' }
+      ],
+      juegos: [
+        {
+          tipo: 'avion', titulo: 'El avión de las sumas',
+          instrucciones: ['Lee la suma de arriba.', 'Toca la nube que tiene la respuesta correcta.', '¡El avión volará hasta esa nube!'],
+          preguntas: [
+            { q: '3 + 4 = ?', fig: { fig: 'objetos', n: 7, tipo: 'pelota', porFila: 7 }, ops: [7, 6, 8], r: 7 },
+            { q: '5 + 5 = ?', ops: [10, 11, 9], r: 10 },
+            { q: '12 + 6 = ?', ops: [18, 17, 19], r: 18 },
+            { q: '20 + 30 = ?', ops: [50, 23, 40], r: 50, pista: '2 decenas más 3 decenas' },
+            { q: '34 + 15 = ?', ops: [49, 48, 59], r: 49 },
+            { q: '41 + 23 = ?', ops: [64, 63, 74], r: 64 },
+            { q: '8 + 7 = ?', ops: [15, 14, 16], r: 15 },
+            { q: '25 + 10 = ?', ops: [35, 26, 45], r: 35 }
+          ]
+        },
+        {
+          tipo: 'memoria', titulo: 'Memoria de sumas',
+          instrucciones: ['Toca dos cartas para voltearlas.', 'Busca la suma y su resultado.', 'Si son pareja se quedan abiertas. ¡Encuentra todas!'],
+          pares: [['6 + 3', 9], ['10 + 5', 15], ['20 + 20', 40], ['7 + 7', 14], ['31 + 12', 43], ['50 + 8', 58]]
+        }
+      ],
+      clase: null
+    },
+
+    /* ---------------------------------------------------- SEMANA 5 */
+    {
+      n: 5,
+      titulo: 'La resta: quitar y comparar',
+      resumen: 'Restamos para saber cuántos quedan cuando quitamos, o cuántos más hay en un grupo que en otro.',
+      contenido: [
+        { t: 'h3', x: 'Restar es quitar' },
+        { t: 'p', x: 'Cuando <b>quitamos</b> objetos de un grupo, restamos para saber cuántos <b>quedan</b>. Usamos el signo <b>-</b> (menos).' },
+        { t: 'ejemplo', titulo: 'Quitamos', x: 'Tenía 8 manzanas y me comí 3. ¿Cuántas quedan? <b>8 - 3 = 5</b>', fig: { fig: 'objetos', n: 8, tipo: 'manzana', porFila: 8, tachar: 3 } },
+        { t: 'h3', x: 'Restar también es comparar' },
+        { t: 'p', x: 'Si Ana tiene 9 flores y Luis tiene 6, ¿cuántas flores <b>más</b> tiene Ana? Restamos: <b>9 - 6 = 3</b>. Ana tiene 3 flores más que Luis.' },
+        { t: 'h3', x: 'Las partes de la resta' },
+        { t: 'tabla', cab: ['8', '-', '3', '=', '5'], filas: [['minuendo', '', 'sustraendo', '', 'diferencia']] },
+        { t: 'h3', x: 'Restamos números de dos cifras' },
+        { t: 'tabla', cab: ['', 'D', 'U'], filas: [['', '5', '7'], ['-', '2', '3'], ['<b>=</b>', '<b>3</b>', '<b>4</b>']] },
+        { t: 'p', x: 'Unidades: 7 - 3 = 4. Decenas: 5 - 2 = 3. Entonces <b>57 - 23 = 34</b>.' },
+        { t: 'video', titulo: 'La resta para niños', busqueda: 'la resta para niños quitar segundo primaria' }
+      ],
+      juegos: [
+        {
+          tipo: 'globos', titulo: 'Revienta el globo',
+          instrucciones: ['Lee la resta o el problema.', 'Los globos suben: toca el globo con la respuesta correcta para reventarlo.', 'Si se escapa, ¡no te preocupes, vuelve a salir!'],
+          preguntas: [
+            { q: '9 - 4 = ?', ops: [5, 4, 6], r: 5 },
+            { q: '15 - 5 = ?', ops: [10, 5, 20], r: 10 },
+            { q: '18 - 7 = ?', ops: [11, 12, 10], r: 11 },
+            { q: '40 - 20 = ?', ops: [20, 60, 30], r: 20 },
+            { q: '57 - 23 = ?', ops: [34, 33, 44], r: 34 },
+            { q: 'Había 8 manzanas y se comieron 3. ¿Cuántas quedan?', fig: { fig: 'objetos', n: 8, tipo: 'manzana', porFila: 8, tachar: 3 }, ops: [5, 11, 4], r: 5 },
+            { q: '68 - 35 = ?', ops: [33, 23, 43], r: 33 },
+            { q: 'Ana tiene 12 crayones y Luis 7. ¿Cuántos más tiene Ana?', ops: [5, 19, 6], r: 5 }
+          ]
+        },
+        {
+          tipo: 'emparejar', titulo: 'Problema y respuesta',
+          instrucciones: ['Toca un problema.', 'Luego toca su respuesta.', '¡Une todas las parejas!'],
+          pares: [
+            ['Tengo 10 globos y se revientan 4', 6],
+            ['Hay 7 pájaros y se van 5', 2],
+            ['20 - 10', 10],
+            ['Tenía 15 dulces y regalé 7', 8],
+            ['36 - 12', 24],
+            ['Hay 9 peces y llegan 3 más', 12]
+          ]
+        }
+      ],
+      clase: null
+    },
+
+    /* ---------------------------------------------------- SEMANA 6 */
+    {
+      n: 6,
+      titulo: 'Patrones y regularidades',
+      resumen: 'Descubrimos la regla que se repite en una serie de figuras o de números para saber qué sigue.',
+      contenido: [
+        { t: 'h3', x: '¿Qué es un patrón?' },
+        { t: 'p', x: 'Un <b>patrón</b> es algo que se repite siguiendo una <b>regla</b>. Si descubrimos la regla, podemos adivinar lo que sigue.' },
+        { t: 'h3', x: 'Patrones con figuras' },
+        { t: 'fig', fig: { fig: 'patron', items: [{ forma: 'triangulo', color: '#ff4d4f' }, { forma: 'circulo', color: '#2f8cff' }, { forma: 'triangulo', color: '#ff4d4f' }, { forma: 'circulo', color: '#2f8cff' }, '?'] }, pie: 'Regla: triángulo, círculo, triángulo, círculo... Sigue un triángulo.' },
+        { t: 'h3', x: 'Patrones con números' },
+        { t: 'tabla', cab: ['Serie', 'Regla', '¿Qué sigue?'], filas: [
+          ['3, 6, 9, 12', 'sumar 3 (crece)', '15'],
+          ['10, 20, 30, 40', 'sumar 10 (crece)', '50'],
+          ['50, 45, 40, 35', 'restar 5 (decrece)', '30'],
+          ['1, 3, 5, 7', 'sumar 2 (crece)', '9']
+        ] },
+        { t: 'p', x: 'Cuando los números se hacen más grandes, el patrón <b>crece</b> (aumenta). Cuando se hacen más pequeños, el patrón <b>decrece</b> (disminuye).' },
+        { t: 'video', titulo: 'Patrones para niños', busqueda: 'patrones para niños de primaria figuras y números' }
+      ],
+      juegos: [
+        {
+          tipo: 'rana', titulo: 'La ranita de los patrones',
+          instrucciones: ['Descubre la regla del patrón.', 'Toca la hoja con lo que sigue.', '¡Ayuda a la ranita a cruzar la laguna!'],
+          preguntas: [
+            { q: '¿Qué figura sigue?', fig: { fig: 'patron', items: [{ forma: 'triangulo', color: '#ff4d4f' }, { forma: 'circulo', color: '#2f8cff' }, { forma: 'triangulo', color: '#ff4d4f' }, { forma: 'circulo', color: '#2f8cff' }, '?'] }, ops: [F.tri('#ff4d4f'), F.cir('#2f8cff'), F.cua('#34c759')], r: F.tri('#ff4d4f') },
+            { q: '¿Qué figura sigue?', fig: { fig: 'patron', items: [{ forma: 'cuadrado', color: '#34c759' }, { forma: 'cuadrado', color: '#34c759' }, { forma: 'rombo', color: '#8e5cf7' }, { forma: 'cuadrado', color: '#34c759' }, { forma: 'cuadrado', color: '#34c759' }, '?'] }, ops: [F.cua('#34c759'), F.rom('#8e5cf7'), F.cir('#ffb300')], r: F.rom('#8e5cf7') },
+            { q: '3, 6, 9, 12, __', ops: [15, 13, 18], r: 15, pista: 'suma 3' },
+            { q: '50, 45, 40, __', ops: [35, 30, 45], r: 35, pista: 'resta 5' },
+            { q: '1, 3, 5, 7, __', ops: [9, 8, 10], r: 9 },
+            { q: '¿Qué figura sigue?', fig: { fig: 'patron', items: [{ forma: 'circulo', color: '#ffb300' }, { forma: 'triangulo', color: '#ff5fa2' }, { forma: 'cuadrado', color: '#2f8cff' }, { forma: 'circulo', color: '#ffb300' }, { forma: 'triangulo', color: '#ff5fa2' }, '?'] }, ops: [F.cua('#2f8cff'), F.cir('#ffb300'), F.tri('#ff5fa2')], r: F.cua('#2f8cff') },
+            { q: '90, 80, 70, __', ops: [60, 69, 50], r: 60 }
+          ]
+        },
+        {
+          tipo: 'clasificar', titulo: '¿Crece o decrece?', tiempo: 60,
+          instrucciones: ['Lee la serie de números.', 'Si los números se hacen más grandes, toca "Crece". Si se hacen más pequeños, toca "Decrece".', '¡Tienes 60 segundos!'],
+          grupos: ['Crece', 'Decrece'],
+          items: [
+            { x: '2, 4, 6, 8', g: 0 }, { x: '30, 25, 20', g: 1 }, { x: '10, 20, 30', g: 0 }, { x: '9, 7, 5, 3', g: 1 },
+            { x: '15, 16, 17', g: 0 }, { x: '100, 90, 80', g: 1 }, { x: '5, 10, 15', g: 0 }, { x: '44, 43, 42', g: 1 },
+            { x: '60, 70, 80', g: 0 }, { x: '20, 18, 16', g: 1 }
+          ]
+        }
+      ],
+      clase: null
+    },
+
+    /* ---------------------------------------------------- SEMANA 7 */
+    {
+      n: 7,
+      titulo: 'Resolvemos problemas: suma y resta con y sin llevar',
+      resumen: 'Aprendemos pasos para resolver problemas y practicamos sumas llevando y restas prestando.',
+      contenido: [
+        { t: 'h3', x: 'Cuatro pasos para resolver un problema' },
+        { t: 'tabla', cab: ['Paso', '¿Qué hago?'], filas: [
+          ['1. Leo', 'Leo el problema con calma, dos veces si es necesario.'],
+          ['2. Pienso', 'Busco los datos (los números) y la pregunta. ¿Tengo que juntar o quitar?'],
+          ['3. Opero', 'Hago la suma o la resta.'],
+          ['4. Respondo', 'Escribo la respuesta completa: "Hay 42 niños".']
+        ] },
+        { t: 'h3', x: 'Palabras que nos dan pistas' },
+        { t: 'lista', items: [
+          '<b>Suma:</b> juntar, agregar, en total, llegan, me regalan, cuántos hay entre todos.',
+          '<b>Resta:</b> quitar, perder, se van, regalé, cuántos quedan, cuántos más, cuántos menos.'
+        ] },
+        { t: 'h3', x: 'Suma llevando' },
+        { t: 'p', x: '<b>27 + 15</b>: sumamos las unidades 7 + 5 = 12. Como 12 es 1 decena y 2 unidades, escribimos el 2 y <b>llevamos 1</b> a las decenas. Decenas: 1 + 2 + 1 = 4. Resultado: <b>42</b>.' },
+        { t: 'tabla', cab: ['', 'D', 'U'], filas: [['', '<small>1</small><br>2', '<br>7'], ['+', '1', '5'], ['<b>=</b>', '<b>4</b>', '<b>2</b>']] },
+        { t: 'h3', x: 'Resta prestando' },
+        { t: 'p', x: '<b>42 - 17</b>: en las unidades no podemos quitar 7 de 2. Pedimos <b>prestada 1 decena</b>: el 4 se vuelve 3 y el 2 se vuelve 12. Unidades: 12 - 7 = 5. Decenas: 3 - 1 = 2. Resultado: <b>25</b>.' },
+        { t: 'ejemplo', titulo: 'Problema', x: 'En el bus van 27 niños y suben 15 más. ¿Cuántos niños van ahora? Pista: "suben" significa agregar. <b>27 + 15 = 42</b>. Respuesta: van 42 niños.' },
+        { t: 'video', titulo: 'Suma llevando y resta prestando', busqueda: 'suma llevando y resta prestando para niños' }
+      ],
+      juegos: [
+        {
+          tipo: 'ruleta', titulo: 'La ruleta de los problemas',
+          instrucciones: ['Presiona "Girar la ruleta".', 'Lee el problema que te tocó y elige la respuesta.', 'Responde los 6 problemas para ganar.'],
+          preguntas: [
+            { q: 'En el bus van 27 niños y suben 15. ¿Cuántos van ahora?', ops: [42, 32, 12], r: 42 },
+            { q: 'Pedro tenía 42 canicas y perdió 17. ¿Cuántas le quedan?', ops: [25, 35, 59], r: 25 },
+            { q: 'María juntó 38 hojas y Ana 24. ¿Cuántas hay en total?', ops: [62, 52, 14], r: 62 },
+            { q: 'En una caja hay 50 lápices. Se usan 26. ¿Cuántos quedan?', ops: [24, 34, 76], r: 24 },
+            { q: 'Hay 19 niñas y 16 niños en el salón. ¿Cuántos estudiantes hay?', ops: [35, 25, 3], r: 35 },
+            { q: 'Luis tiene 33 estampas y Carla 18. ¿Cuántas más tiene Luis?', ops: [15, 25, 51], r: 15 }
+          ]
+        },
+        {
+          tipo: 'clasificar', titulo: '¿Suma o resta?',
+          instrucciones: ['Lee el problema de la tarjeta.', 'Piensa: ¿tengo que juntar (suma) o quitar (resta)?', 'Toca la canasta correcta.'],
+          grupos: ['Suma (+)', 'Resta (-)'],
+          items: [
+            { x: 'Me regalan 5 dulces más', g: 0 }, { x: 'Se van 3 pájaros', g: 1 }, { x: 'Llegan 10 niños a la fiesta', g: 0 },
+            { x: 'Regalé 4 crayones', g: 1 }, { x: '¿Cuántos hay en total?', g: 0 }, { x: '¿Cuántos quedan?', g: 1 },
+            { x: 'Perdí 2 canicas', g: 1 }, { x: 'Junto mis ahorros con los de mi hermano', g: 0 }
+          ]
+        },
+        {
+          tipo: 'ordenar', titulo: 'Ordena los pasos',
+          instrucciones: ['Toca los pasos en el orden correcto para resolver un problema.', 'Si te equivocas, toca la casilla para quitarlo.', 'Presiona Comprobar.'],
+          rondas: [
+            { q: '¿En qué orden resuelvo un problema?', ancho: true, items: ['Leo el problema con calma', 'Busco los datos y la pregunta', 'Hago la suma o la resta', 'Escribo la respuesta completa'] },
+            { q: 'Ordena los pasos para sumar 27 + 15', ancho: true, items: ['Escribo un número debajo del otro', 'Sumo las unidades: 7 + 5 = 12', 'Escribo 2 y llevo 1 a las decenas', 'Sumo las decenas: 1 + 2 + 1 = 4'] }
+          ]
+        }
+      ],
+      clase: null
+    },
+
+    /* ---------------------------------------------------- SEMANA 8 */
+    {
+      n: 8,
+      titulo: 'Medimos con nuestro cuerpo y con objetos',
+      resumen: 'Medimos con cuartas, pies, pasos y clips; estimamos y comparamos nuestras medidas.',
+      contenido: [
+        { t: 'h3', x: '¿Qué es medir?' },
+        { t: 'p', x: 'Medir es <b>comparar</b> el largo de un objeto con otra cosa que usamos como unidad. Podemos medir con partes de nuestro cuerpo o con objetos que todos tengan iguales.' },
+        { t: 'tabla', cab: ['Unidad', '¿Cómo es?', 'Sirve para medir...'], filas: [
+          ['Cuarta', 'la distancia de la punta del pulgar a la punta del meñique con la mano abierta', 'una mesa, un cuaderno'],
+          ['Pie', 'el largo de un pie, pegando el talón a la punta del otro', 'el ancho del salón'],
+          ['Paso', 'un paso normal al caminar', 'el patio, el pasillo'],
+          ['Clip', 'clips del mismo tamaño puestos uno tras otro', 'un lápiz, un borrador']
+        ] },
+        { t: 'fig', fig: { fig: 'clips', n: 5, objeto: 'lapiz' }, pie: 'Este lápiz mide 5 clips.' },
+        { t: 'h3', x: '¿Por qué nos salen medidas diferentes?' },
+        { t: 'p', x: 'Si la maestra y un estudiante miden la misma mesa con cuartas, les salen números distintos porque sus manos son de diferente tamaño. Por eso se inventaron unidades iguales para todos, como el <b>centímetro</b> y el <b>metro</b>, que vemos en la regla y la cinta métrica.' },
+        { t: 'h3', x: 'Estimar' },
+        { t: 'p', x: '<b>Estimar</b> es decir más o menos cuánto mide algo <b>antes</b> de medirlo. Después medimos y comparamos: ¿estuvimos cerca?' },
+        { t: 'video', titulo: 'Medidas no convencionales', busqueda: 'medidas no convencionales para niños cuarta pie paso' }
+      ],
+      juegos: [
+        {
+          tipo: 'avion', titulo: 'El avión medidor',
+          instrucciones: ['Mira el objeto y los clips que tiene debajo.', 'Cuenta los clips.', 'Toca la nube con el número correcto.'],
+          preguntas: [
+            { q: '¿Cuántos clips mide el lápiz?', fig: { fig: 'clips', n: 4, objeto: 'lapiz' }, ops: [4, 5, 3], r: 4 },
+            { q: '¿Cuántos clips mide el crayón?', fig: { fig: 'clips', n: 3, objeto: 'crayon' }, ops: [3, 2, 4], r: 3 },
+            { q: '¿Cuántos clips mide el libro?', fig: { fig: 'clips', n: 6, objeto: 'libro' }, ops: [6, 5, 7], r: 6 },
+            { q: '¿Cuántos clips mide el lápiz?', fig: { fig: 'clips', n: 7, objeto: 'lapiz' }, ops: [7, 6, 8], r: 7 },
+            { q: 'El lápiz mide 7 clips y el crayón 3. ¿Cuántos clips más mide el lápiz?', ops: [4, 10, 3], r: 4 }
+          ]
+        },
+        {
+          tipo: 'clasificar', titulo: '¿Con pasos o con clips?',
+          instrucciones: ['Lee qué vamos a medir.', 'Si es algo grande, toca "Con pasos". Si es algo pequeño, toca "Con clips".', '¡Clasifica todos!'],
+          grupos: ['Con pasos', 'Con clips'],
+          items: [
+            { x: 'El patio', g: 0 }, { x: 'Un borrador', g: 1 }, { x: 'El pasillo', g: 0 }, { x: 'Un crayón', g: 1 },
+            { x: 'La cancha', g: 0 }, { x: 'Una tijera', g: 1 }, { x: 'El salón de clases', g: 0 }, { x: 'Un sacapuntas', g: 1 }
+          ]
+        }
+      ],
+      clase: {
+        titulo: 'Medimos nuestro mundo',
+        descripcion: 'Medimos objetos del aula primero con manos, pies o cuerdas y después con regla y cinta métrica. Registramos y comparamos los resultados.',
+        materiales: ['Cuerdas o lana', 'Clips del mismo tamaño', 'Regla y cinta métrica', 'Hoja de registro'],
+        pasos: [
+          'Cada equipo elige 4 objetos del aula: la mesa, la pizarra, un cuaderno y la puerta.',
+          'Antes de medir, estiman cuántas cuartas o clips medirá cada objeto y lo anotan.',
+          'Miden con cuartas, pies o clips y anotan el resultado.',
+          'Vuelven a medir con regla o cinta métrica (en centímetros) y lo anotan.',
+          'Comparan con otro equipo: ¿por qué con cuartas salieron números distintos y con la regla no?'
+        ],
+        cierre: '¿Qué unidad es mejor para que todos obtengamos la misma medida? ¿Por qué?'
+      }
+    },
+
+    /* ---------------------------------------------------- SEMANA 9 */
+    {
+      n: 9,
+      titulo: 'Figuras planas y sus propiedades',
+      resumen: 'Reconocemos el triángulo, el cuadrado, el rectángulo y el círculo por sus lados y vértices.',
+      contenido: [
+        { t: 'h3', x: 'Lados y vértices' },
+        { t: 'p', x: 'Los <b>lados</b> son las líneas que forman el borde de una figura. Los <b>vértices</b> son las esquinas, donde se juntan dos lados.' },
+        { t: 'figs', ancho: 140, figs: [
+          { fig: 'figura', forma: 'triangulo', color: '#ff4d4f', nombre: 'Triángulo', nota: '3 lados, 3 vértices' },
+          { fig: 'figura', forma: 'cuadrado', color: '#2f8cff', nombre: 'Cuadrado', nota: '4 lados iguales, 4 vértices' },
+          { fig: 'figura', forma: 'rectangulo', color: '#34c759', nombre: 'Rectángulo', nota: '4 lados (2 largos y 2 cortos), 4 vértices' },
+          { fig: 'figura', forma: 'circulo', color: '#ffb300', nombre: 'Círculo', nota: 'línea curva, sin lados rectos ni vértices' }
+        ] },
+        { t: 'h3', x: 'Figuras a nuestro alrededor' },
+        { t: 'lista', items: [
+          'Una ventana o la pizarra pueden tener forma de <b>rectángulo</b>.',
+          'Un reloj de pared o una moneda tienen forma de <b>círculo</b>.',
+          'Una señal de tránsito de "ceda el paso" tiene forma de <b>triángulo</b>.',
+          'Un azulejo del piso puede tener forma de <b>cuadrado</b>.'
+        ] },
+        { t: 'p', x: 'Las figuras planas son "planas" como un dibujo en una hoja. Los objetos que podemos tomar con la mano, como una pelota o una caja, son <b>cuerpos geométricos</b>: la pelota es una esfera y la caja es un prisma.' },
+        { t: 'video', titulo: 'Figuras geométricas planas', busqueda: 'figuras geométricas planas para niños lados y vértices' }
+      ],
+      juegos: [
+        {
+          tipo: 'clasificar', titulo: 'Clasifica las figuras', tiempo: 75,
+          instrucciones: ['Mira la figura de la tarjeta.', 'Cuenta sus lados.', 'Toca la canasta correcta. ¡Rápido!'],
+          grupos: ['3 lados', '4 lados', 'Sin lados rectos'],
+          items: [
+            { fig: F.tri('#ff4d4f'), g: 0 }, { fig: F.cua('#2f8cff'), g: 1 }, { fig: F.cir('#ffb300'), g: 2 }, { fig: F.rec('#34c759'), g: 1 },
+            { fig: F.tri('#8e5cf7'), g: 0 }, { fig: F.ova('#ff5fa2'), g: 2 }, { fig: F.rom('#14c4c4'), g: 1 }, { fig: F.cir('#ff7a1a'), g: 2 },
+            { fig: F.rec('#ff4d4f'), g: 1 }, { fig: F.tri('#34c759'), g: 0 }
+          ]
+        },
+        {
+          tipo: 'memoria', titulo: 'Memoria de figuras',
+          instrucciones: ['Voltea dos cartas.', 'Une cada figura con su nombre o su descripción.', '¡Encuentra todas las parejas!'],
+          pares: [
+            [F.tri('#ff4d4f'), 'Triángulo: 3 lados'],
+            [F.cua('#2f8cff'), 'Cuadrado: 4 lados iguales'],
+            [F.rec('#34c759'), 'Rectángulo: 2 lados largos y 2 cortos'],
+            [F.cir('#ffb300'), 'Círculo: sin vértices']
+          ]
+        }
+      ],
+      clase: {
+        titulo: 'Cazadores de figuras',
+        descripcion: 'Recorremos el colegio fotografiando o dibujando figuras planas y cuerpos geométricos que encontramos en objetos reales. Después los clasificamos en un mural.',
+        materiales: ['Hoja de registro con una columna por figura', 'Lápiz y crayones', 'Tableta o cámara (opcional)', 'Papel grande para el mural'],
+        pasos: [
+          'En equipos, reciben su hoja de "cazadores" con las figuras: triángulo, cuadrado, rectángulo y círculo.',
+          'Recorren el colegio con la maestra y dibujan o fotografían objetos que tengan esas formas.',
+          'De regreso al aula, cuentan cuántos objetos encontraron de cada figura.',
+          'Pegan sus dibujos o fotos en el mural, en la columna de la figura correcta.'
+        ],
+        cierre: '¿Qué figura encontramos más veces en el colegio? ¿Cuál fue la más difícil de encontrar?'
+      }
+    },
+
+    /* ---------------------------------------------------- SEMANA 10 */
+    {
+      n: 10,
+      titulo: 'Pictogramas y gráficas de barras',
+      resumen: 'Hacemos encuestas, contamos los votos y los mostramos en pictogramas y gráficas de barras.',
+      contenido: [
+        { t: 'h3', x: 'Encuesta y tabla de conteo' },
+        { t: 'p', x: 'Una <b>encuesta</b> es preguntar lo mismo a varias personas. Anotamos las respuestas en una <b>tabla</b> para contarlas.' },
+        { t: 'tabla', cab: ['Fruta favorita', 'Votos'], filas: [['Mango', '5'], ['Banano', '3'], ['Piña', '4'], ['Sandía', '2']] },
+        { t: 'h3', x: 'Pictograma' },
+        { t: 'p', x: 'En un <b>pictograma</b> cada dibujo representa un voto. Contamos los dibujos de cada fila.' },
+        { t: 'fig', fig: { fig: 'picto', icono: 'estrella', max: 6, datos: [['Mango', 5], ['Banano', 3], ['Piña', 4], ['Sandía', 2]] }, pie: 'Cada estrella es 1 voto.' },
+        { t: 'h3', x: 'Gráfica de barras' },
+        { t: 'p', x: 'En una <b>gráfica de barras</b>, la altura de cada barra muestra cuántos votos hay. La barra más alta es la que tiene más votos.' },
+        { t: 'fig', fig: { fig: 'barras', max: 6, datos: [['Mango', 5], ['Banano', 3], ['Piña', 4], ['Sandía', 2]] } },
+        { t: 'ejemplo', titulo: 'Leemos la gráfica', x: 'La fruta favorita es el <b>mango</b> (5 votos). La menos elegida es la <b>sandía</b> (2 votos). El mango tiene 3 votos más que la sandía porque 5 - 2 = 3.' },
+        { t: 'video', titulo: 'Pictogramas para niños', busqueda: 'pictogramas y gráficas de barras para niños' }
+      ],
+      juegos: [
+        {
+          tipo: 'grafica', titulo: 'Construye la gráfica',
+          q: 'Encuesta: ¿Cuál es tu juego favorito del recreo?', columna: 'Juego',
+          instrucciones: ['Lee la tabla: dice cuántos votos tuvo cada juego.', 'Usa + y - para poner una estrella por cada voto.', 'Presiona Comprobar y luego responde las preguntas.'],
+          categorias: [
+            { nombre: 'Fútbol', valor: 4, icono: 'estrella' },
+            { nombre: 'Cuerda', valor: 2, icono: 'estrella' },
+            { nombre: 'Escondite', valor: 5, icono: 'estrella' },
+            { nombre: 'Rayuela', valor: 3, icono: 'estrella' }
+          ],
+          preguntas: [
+            { q: '¿Qué juego tiene más votos?', ops: ['Escondite', 'Fútbol', 'Rayuela'], r: 'Escondite' },
+            { q: '¿Cuántos votos tiene Rayuela?', ops: ['3', '4', '2'], r: '3' },
+            { q: '¿Cuántos votos más tiene Escondite que Cuerda?', ops: ['3', '2', '7'], r: '3' }
+          ]
+        },
+        {
+          tipo: 'rana', titulo: 'La ranita lee pictogramas',
+          instrucciones: ['Mira el pictograma: cada estrella es 1 voto.', 'Lee la pregunta.', 'Toca la hoja con la respuesta correcta.'],
+          preguntas: [
+            { q: '¿Cuántos votos tiene Mango?', fig: { fig: 'picto', icono: 'estrella', max: 6, datos: [['Mango', 5], ['Banano', 3], ['Piña', 4], ['Sandía', 2]] }, ops: [5, 4, 3], r: 5 },
+            { q: '¿Qué fruta tiene menos votos?', fig: { fig: 'picto', icono: 'estrella', max: 6, datos: [['Mango', 5], ['Banano', 3], ['Piña', 4], ['Sandía', 2]] }, ops: ['Sandía', 'Banano', 'Piña'], r: 'Sandía' },
+            { q: '¿Cuántos votos hay entre Banano y Piña?', fig: { fig: 'picto', icono: 'estrella', max: 6, datos: [['Mango', 5], ['Banano', 3], ['Piña', 4], ['Sandía', 2]] }, ops: [7, 6, 8], r: 7 },
+            { q: '¿Cuántos peces hay en la pecera azul?', fig: { fig: 'picto', icono: 'pez', max: 6, datos: [['Roja', 2], ['Azul', 6], ['Verde', 4]] }, ops: [6, 4, 2], r: 6 },
+            { q: '¿Cuántos peces más tiene la azul que la roja?', fig: { fig: 'picto', icono: 'pez', max: 6, datos: [['Roja', 2], ['Azul', 6], ['Verde', 4]] }, ops: [4, 8, 2], r: 4 }
+          ]
+        }
+      ],
+      clase: {
+        titulo: 'Encuesta y gráfica',
+        descripcion: 'Hacemos una encuesta a los compañeros (fruta favorita, mascota o color) y representamos los resultados en un pictograma o una gráfica de barras gigante.',
+        materiales: ['Papelógrafo o papel kraft', 'Recortes de cuadros de papel de colores', 'Marcadores', 'Pegamento'],
+        pasos: [
+          'Entre todos elegimos la pregunta de la encuesta y 4 opciones de respuesta.',
+          'Cada estudiante pasa al frente y pega un cuadro de papel en la columna de su respuesta.',
+          'Contamos los cuadros de cada columna y escribimos el número debajo.',
+          'Respondemos juntos: ¿cuál ganó?, ¿cuál tuvo menos votos?, ¿cuántos votos más tiene la primera que la última?'
+        ],
+        cierre: 'Si preguntáramos lo mismo en otro grado, ¿crees que el resultado sería igual? ¿Por qué?'
+      }
+    },
+
+    /* ---------------------------------------------------- SEMANA 11 */
+    {
+      n: 11,
+      titulo: 'El dinero de Guatemala: el quetzal',
+      resumen: 'Conocemos las monedas y billetes del quetzal, sus equivalencias y cómo pagar y dar vuelto.',
+      contenido: [
+        { t: 'h3', x: 'Nuestra moneda: el quetzal' },
+        { t: 'p', x: 'La moneda de Guatemala es el <b>quetzal</b> y se escribe con la letra <b>Q</b>. Por ejemplo, cinco quetzales se escribe <b>Q5</b>. Un quetzal se divide en <b>100 centavos</b>.' },
+        { t: 'tabla', cab: ['Monedas', 'Billetes'], filas: [
+          ['1, 5, 10, 25 y 50 centavos; Q1', 'Q1, Q5, Q10, Q20, Q50, Q100 y Q200']
+        ] },
+        { t: 'p', x: '<small>Los diseños y colores reales los define el Banco de Guatemala y pueden cambiar con nuevas emisiones. Los dibujos de este sitio son simplificados y solo sirven para practicar.</small>' },
+        { t: 'figs', ancho: 120, figs: [
+          { fig: 'dinero', v: 1, moneda: true, nombre: 'Moneda de Q1' },
+          { fig: 'dinero', v: 5, nombre: 'Billete de Q5' },
+          { fig: 'dinero', v: 10, nombre: 'Billete de Q10' },
+          { fig: 'dinero', v: 20, nombre: 'Billete de Q20' }
+        ] },
+        { t: 'h3', x: 'Equivalencias' },
+        { t: 'tabla', cab: ['Esto...', '...vale lo mismo que'], filas: [
+          ['Q1', '100 centavos, o 2 monedas de 50 centavos'],
+          ['Q5', '5 monedas de Q1'],
+          ['Q10', '2 billetes de Q5'],
+          ['Q20', '2 billetes de Q10, o 4 billetes de Q5']
+        ] },
+        { t: 'h3', x: 'Pagar y dar vuelto' },
+        { t: 'p', x: 'Si un cuaderno cuesta <b>Q12</b> y pago con un billete de <b>Q20</b>, me deben dar <b>vuelto</b>. Restamos: 20 - 12 = 8. El vuelto es <b>Q8</b>.' },
+        { t: 'video', titulo: 'Monedas y billetes de Guatemala', busqueda: 'monedas y billetes de Guatemala para niños quetzal' }
+      ],
+      juegos: [
+        {
+          tipo: 'tienda', titulo: 'La tiendita',
+          instrucciones: ['Mira el producto y su precio.', 'Toca las monedas y billetes para ponerlos en la bandeja. Si te pasas, toca el dinero de la bandeja para quitarlo.', 'Cuando tengas el precio exacto, presiona Pagar.'],
+          dinero: [{ v: 1, moneda: true }, { v: 5 }, { v: 10 }, { v: 20 }],
+          rondas: [
+            { prod: 'galleta', nombre: 'Galleta', precio: 2 },
+            { prod: 'lapiz', nombre: 'Lápiz', precio: 3 },
+            { prod: 'jugo', nombre: 'Jugo', precio: 6 },
+            { prod: 'cuaderno', nombre: 'Cuaderno', precio: 12 },
+            { prod: 'pelota', nombre: 'Pelota', precio: 25 },
+            { prod: 'carro', nombre: 'Carrito', precio: 37 }
+          ]
+        },
+        {
+          tipo: 'emparejar', titulo: '¿Cuánto vale?',
+          instrucciones: ['Toca un billete o moneda.', 'Luego toca lo que vale lo mismo.', '¡Une todas las parejas!'],
+          pares: [
+            [{ fig: 'dinero', v: 10, w: 100 }, '2 billetes de Q5'],
+            [{ fig: 'dinero', v: 20, w: 100 }, '2 billetes de Q10'],
+            [{ fig: 'dinero', v: 5, w: 100 }, '5 monedas de Q1'],
+            [{ fig: 'dinero', v: 1, moneda: true }, '100 centavos'],
+            ['Pago Q20 por algo de Q12', 'Vuelto: Q8']
+          ]
+        }
+      ],
+      clase: {
+        titulo: 'Mi mercado escolar',
+        descripcion: 'Montamos una tiendita en el aula con productos y precios. Compramos y vendemos con billetes y monedas de juguete (quetzales), sumando y restando para dar vuelto.',
+        materiales: ['Empaques vacíos y limpios (cajas, botellas)', 'Etiquetas para precios', 'Billetes y monedas de juguete', 'Caja registradora de cartón', 'Hoja para anotar ventas'],
+        pasos: [
+          'Entre todos ponemos precios de Q1 a Q30 a los productos.',
+          'Nos organizamos en vendedores y compradores; cada comprador recibe Q50 de juguete.',
+          'El comprador elige 2 productos, suma los precios y paga.',
+          'El vendedor calcula el vuelto con una resta y lo entrega.',
+          'Cambiamos los roles para que todos sean vendedores y compradores.'
+        ],
+        cierre: '¿Cuánto dinero te quedó? ¿Qué harías para que te alcance para comprar un producto más?'
+      }
+    },
+
+    /* ---------------------------------------------------- SEMANA 12 */
+    {
+      n: 12,
+      titulo: 'Repaso: ¡Feria de los números!',
+      resumen: 'Repasamos todo lo aprendido en la unidad con juegos de números, sumas, restas, figuras y dinero.',
+      contenido: [
+        { t: 'h3', x: 'Lo que aprendimos en esta unidad' },
+        { t: 'tabla', cab: ['Semana', 'Tema', 'Recuerda...'], filas: [
+          ['1', 'Contar de 2, 5 y 10', '10, 20, 30... son saltos de 10'],
+          ['2', 'Decenas y unidades', '10 unidades = 1 decena'],
+          ['3', 'Comparar', 'el cocodrilo come al mayor: &gt;, &lt;, ='],
+          ['4', 'Suma', 'juntar y agregar'],
+          ['5', 'Resta', 'quitar y comparar'],
+          ['6', 'Patrones', 'descubre la regla'],
+          ['7', 'Problemas', 'leo, pienso, opero y respondo'],
+          ['8', 'Medir', 'cuartas, pies, pasos y clips'],
+          ['9', 'Figuras planas', 'lados y vértices'],
+          ['10', 'Gráficas', 'cada dibujo es un voto'],
+          ['11', 'Dinero', 'Q1 = 100 centavos']
+        ] },
+        { t: 'p', x: 'Juega la ruleta y la memoria de repaso. Si alguna pregunta te cuesta, regresa a la semana de ese tema y vuelve a leer el contenido.' }
+      ],
+      juegos: [
+        {
+          tipo: 'ruleta', titulo: 'La gran ruleta del repaso',
+          instrucciones: ['Gira la ruleta.', 'Responde la pregunta que te toque.', 'Completa las 8 preguntas.'],
+          preguntas: [
+            { q: '¿Qué número sigue? 20, 30, 40, __', ops: [50, 41, 45], r: 50 },
+            { q: '¿Cuántas decenas tiene el 68?', ops: [6, 8, 68], r: 6 },
+            { q: '¿Qué signo va? 39 __ 93', ops: ['<', '>', '='], r: '<' },
+            { q: '26 + 13 = ?', ops: [39, 29, 49], r: 39 },
+            { q: '75 - 32 = ?', ops: [43, 53, 47], r: 43 },
+            { q: '¿Cuántos lados tiene un triángulo?', ops: [3, 4, 0], r: 3 },
+            { q: '¿Cuántos clips mide el crayón?', fig: { fig: 'clips', n: 4, objeto: 'crayon' }, ops: [4, 3, 5], r: 4 },
+            { q: 'Tengo Q20 y compro algo de Q15. ¿Cuánto me dan de vuelto?', ops: ['Q5', 'Q35', 'Q15'], r: 'Q5' }
+          ]
+        },
+        {
+          tipo: 'memoria', titulo: 'Memoria del repaso',
+          instrucciones: ['Voltea dos cartas.', 'Busca las parejas que valen lo mismo.', '¡Encuéntralas todas!'],
+          pares: [
+            [{ fig: 'bloques', n: 32 }, 32],
+            ['4 decenas', 40],
+            ['18 + 11', 29],
+            ['50 - 20', 30],
+            [F.cua('#2f8cff'), '4 lados iguales'],
+            [{ fig: 'dinero', v: 10, w: 100 }, 'Q5 + Q5']
+          ]
+        }
+      ],
+      clase: null
+    }
+  ]
+});
+
+window.VIDEOS_OK = {};
+
+</script>
+<script>
+/* ==========================================================
+   Motor del sitio de clase (no necesitas editar este archivo
+   para cambiar contenido: edita los archivos de src/data/).
+   ========================================================== */
+(function () {
+  'use strict';
+
+  var SITIO = window.SITIO || {};
+  var UNIDADES = window.UNIDADES || [];
+  var PROYECTOS = window.PROYECTOS || [];
+  var PAGINA = window.PAGINA || { tipo: 'inicio' };
+  var EMBED = !!PAGINA.embed;
+
+  /* ---------------- utilidades ---------------- */
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  function el(tag, attrs, html) {
+    var e = document.createElement(tag);
+    if (attrs) for (var k in attrs) {
+      if (k === 'class') e.className = attrs[k];
+      else if (k.slice(0, 2) === 'on') e.addEventListener(k.slice(2), attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    }
+    if (html != null) e.innerHTML = html;
+    return e;
+  }
+  function barajar(a) {
+    a = a.slice();
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+
+  /* Almacenamiento seguro: en un iframe de Google Sites puede estar bloqueado */
+  var memoria = {};
+  var store = {
+    get: function (k, def) {
+      try { var v = window.localStorage.getItem('clase:' + k); return v == null ? def : JSON.parse(v); }
+      catch (e) { return k in memoria ? memoria[k] : def; }
+    },
+    set: function (k, v) {
+      memoria[k] = v;
+      try { window.localStorage.setItem('clase:' + k, JSON.stringify(v)); } catch (e) { /* sin almacenamiento: seguimos */ }
+    }
+  };
+
+  /* ---------------- enlaces ---------------- */
+  var RUTAS = {
+    inicio: function () { return 'index.html'; },
+    unidades: function () { return 'contenidos.html'; },
+    unidad: function (u) { return 'unidad-' + u + '.html'; },
+    semana: function (u, s) { return 'u' + u + '-semana-' + pad2(s) + '.html'; },
+    proyectos: function () { return 'proyectos.html'; },
+    proyecto: function (u) { return 'proyecto-u' + u + '.html'; },
+    galeria: function (u) { return 'galeria-u' + u + '.html'; }
+  };
+  function href(tipo, a, b) {
+    var f = RUTAS[tipo](a, b);
+    if (EMBED) return (SITIO.urlBase || '') + f;
+    return f;
+  }
+  var TARGET = EMBED ? ' target="_top"' : '';
+
+  /* ---------------- íconos de línea (SVG) ---------------- */
+  var I = {
+    abajo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
+    menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>',
+    telescopio: '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 30l34-14 5 12-34 14z"/><path d="M42 16l8-3 5 12-8 3"/><path d="M4 32l4-2 5 12-4 2z"/><path d="M28 38l-8 20M30 37l10 21M29 37v8"/><circle cx="29" cy="35" r="3"/></svg>',
+    estrella: '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" aria-hidden="true"><path d="M32 6l7.6 16.4L57 24.6 44 37l3.4 18L32 46.2 16.6 55 20 37 7 24.6l17.4-2.2z"/></svg>',
+    personas: '<svg viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="60" cy="28" r="14"/><path d="M34 86c0-16 12-28 26-28s26 12 26 28"/><circle cx="24" cy="38" r="10"/><path d="M6 86c0-12 8-21 18-21 5 0 9 2 12 5"/><circle cx="96" cy="38" r="10"/><path d="M114 86c0-12-8-21-18-21-5 0-9 2-12 5"/></svg>',
+    bombilla: '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44c0-6-8-10-8-20a16 16 0 0 1 32 0c0 10-8 14-8 20z"/><path d="M24 50h16M26 56h12M32 4V0M8 24H4M60 24h-4M14 8l-3-3M50 8l3-3"/></svg>',
+    lupa: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="20" r="13"/><path d="M30 30l12 12"/><path d="M16 15l9 5-9 5z" fill="currentColor" stroke="none"/></svg>',
+    imagen: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="40" height="32" rx="3"/><circle cx="16" cy="19" r="4"/><path d="M4 34l12-10 9 8 7-6 12 10"/></svg>',
+    estrellaRelleno: function (on) {
+      return '<svg viewBox="0 0 64 64" class="' + (on ? 'on' : '') + '" aria-hidden="true"><path d="M32 4l8.5 18.2L60 24.6 45.5 38.3 49.3 58 32 48.2 14.7 58l3.8-19.7L4 24.6l19.5-2.4z" fill="' + (on ? '#ffcc00' : '#e3e6ee') + '" stroke="' + (on ? '#e0a800' : '#c9cedb') + '" stroke-width="3" stroke-linejoin="round"/></svg>';
+    },
+    estrellita: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.9 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.3l7-.8z" fill="#ffcc00"/></svg>',
+    sonido: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>',
+    mudo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>',
+    canasta: '<svg viewBox="0 0 60 44" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16h52l-6 24H10z"/><path d="M16 16l8-12M44 16l-8-12M20 24v10M30 24v10M40 24v10"/></svg>',
+    signo: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" aria-hidden="true"><path d="M18 18a6 6 0 1 1 8 5.6c-1.4.6-2 1.6-2 3V30"/><circle cx="24" cy="37" r="1.5" fill="currentColor"/></svg>'
+  };
+
+  /* ---------------- figuras (SVG en línea) ---------------- */
+  var COLORES = ['#ff4d4f', '#2f8cff', '#34c759', '#ffb300', '#8e5cf7', '#ff5fa2', '#14c4c4', '#ff7a1a'];
+  var FIG = {
+    /* bloques base 10: decenas como barras, unidades como cubos */
+    bloques: function (o) {
+      var n = o.n, d = Math.floor(n / 10), u = n % 10, x = 6, s = '';
+      for (var i = 0; i < d; i++) {
+        s += '<rect x="' + x + '" y="6" width="14" height="110" rx="2" fill="#2f8cff" stroke="#1c64c0" stroke-width="2"/>';
+        for (var k = 1; k < 10; k++) s += '<line x1="' + x + '" x2="' + (x + 14) + '" y1="' + (6 + k * 11) + '" y2="' + (6 + k * 11) + '" stroke="#1c64c0" stroke-width="1.4"/>';
+        x += 19;
+      }
+      if (d) x += 10;
+      for (var j = 0; j < u; j++) {
+        var cx = x + (j % 3) * 15, cy = 104 - Math.floor(j / 3) * 15;
+        s += '<rect x="' + cx + '" y="' + cy + '" width="12" height="12" rx="2" fill="#ffcc00" stroke="#c99a00" stroke-width="2"/>';
+      }
+      var w = x + (u ? 3 * 15 : 0) + 6;
+      return '<svg viewBox="0 0 ' + Math.max(w, 40) + ' 122" role="img" aria-label="' + d + ' decenas y ' + u + ' unidades">' + s + '</svg>';
+    },
+    /* recta numérica */
+    recta: function (o) {
+      var desde = o.desde, hasta = o.hasta, paso = o.paso || 1, salto = o.saltos || 0;
+      var n = Math.round((hasta - desde) / paso), W = 600, m = 30, dx = (W - 2 * m) / n, s = '';
+      s += '<line x1="10" y1="80" x2="' + (W - 10) + '" y2="80" stroke="#2e3340" stroke-width="3"/>';
+      s += '<path d="M' + (W - 10) + ' 80l-10-6v12z" fill="#2e3340"/>';
+      for (var i = 0; i <= n; i++) {
+        var x = m + i * dx, v = desde + i * paso;
+        var oculto = o.ocultar && o.ocultar.indexOf(v) >= 0;
+        s += '<line x1="' + x + '" y1="72" x2="' + x + '" y2="88" stroke="#2e3340" stroke-width="3"/>';
+        s += '<text x="' + x + '" y="112" text-anchor="middle" font-family="Roboto,Arial" font-weight="700" font-size="20" fill="' + (oculto ? '#e07a2c' : '#2e3340') + '">' + (oculto ? '?' : v) + '</text>';
+        if (salto && i < n && i % salto === 0 && i + salto <= n) {
+          var x2 = m + (i + salto) * dx;
+          s += '<path d="M' + (x + 3) + ' 70 Q ' + ((x + x2) / 2) + ' ' + (20) + ' ' + (x2 - 3) + ' 70" fill="none" stroke="#e07a2c" stroke-width="3"/>';
+          s += '<path d="M' + (x2 - 3) + ' 70 l-9 -5 l2 9z" fill="#e07a2c"/>';
+        }
+      }
+      return '<svg viewBox="0 0 ' + W + ' 122" role="img" aria-label="Recta numérica de ' + desde + ' a ' + hasta + '">' + s + '</svg>';
+    },
+    /* objetos para contar o sumar */
+    objetos: function (o) {
+      var n = o.n, tipo = o.tipo || 'manzana', por = o.porFila || 5, s = '', size = 40;
+      var tachados = o.tachar || 0;
+      for (var i = 0; i < n; i++) {
+        var x = (i % por) * (size + 6) + 4, y = Math.floor(i / por) * (size + 6) + 4;
+        s += '<g transform="translate(' + x + ',' + y + ')">' + FIG._obj(tipo) + (i >= n - tachados ? '<path d="M2 2L38 38M38 2L2 38" stroke="#ff4d4f" stroke-width="5" stroke-linecap="round"/>' : '') + '</g>';
+      }
+      var filas = Math.ceil(n / por), cols = Math.min(n, por);
+      return '<svg viewBox="0 0 ' + (cols * (size + 6) + 4) + ' ' + (filas * (size + 6) + 4) + '" role="img" aria-label="' + n + ' objetos">' + s + '</svg>';
+    },
+    _obj: function (tipo) {
+      if (tipo === 'estrella') return '<path d="M20 2l5.3 11.4 12.2 1.5-9 8.6 2.4 12.3L20 29.8 9.1 35.8l2.4-12.3-9-8.6 12.2-1.5z" fill="#ffcc00" stroke="#d9a300" stroke-width="2"/>';
+      if (tipo === 'pelota') return '<circle cx="20" cy="20" r="17" fill="#2f8cff"/><path d="M3 20h34M20 3c-8 8-8 26 0 34" stroke="#fff" stroke-width="3" fill="none"/>';
+      if (tipo === 'pez') return '<path d="M4 20c8-12 22-12 28 0-6 12-20 12-28 0z" fill="#ff7a1a"/><path d="M30 20l8-8v16z" fill="#ff7a1a"/><circle cx="12" cy="18" r="2.5" fill="#fff"/>';
+      if (tipo === 'flor') return '<circle cx="20" cy="10" r="7" fill="#ff5fa2"/><circle cx="30" cy="20" r="7" fill="#ff5fa2"/><circle cx="20" cy="30" r="7" fill="#ff5fa2"/><circle cx="10" cy="20" r="7" fill="#ff5fa2"/><circle cx="20" cy="20" r="6" fill="#ffcc00"/>';
+      /* manzana */
+      return '<path d="M20 11c-6-5-16-2-16 9 0 9 7 18 12 18 2 0 3-1 4-1s2 1 4 1c5 0 12-9 12-18 0-11-10-14-16-9z" fill="#ff4d4f"/><path d="M20 11c0-4 2-7 5-9" stroke="#6b3e1f" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M22 7c4-3 8-2 9 0-3 3-7 3-9 0z" fill="#34c759"/>';
+    },
+    /* figura plana */
+    figura: function (o) {
+      var c = o.color || '#2f8cff', f = o.forma, s;
+      var st = ' fill="' + c + '" stroke="#2e3340" stroke-width="4" stroke-linejoin="round"';
+      if (f === 'triangulo') s = '<path d="M60 8L112 104H8z"' + st + '/>';
+      else if (f === 'cuadrado') s = '<rect x="14" y="10" width="92" height="92"' + st + '/>';
+      else if (f === 'rectangulo') s = '<rect x="4" y="28" width="112" height="60"' + st + '/>';
+      else if (f === 'circulo') s = '<circle cx="60" cy="56" r="48"' + st + '/>';
+      else if (f === 'rombo') s = '<path d="M60 4L112 56 60 108 8 56z"' + st + '/>';
+      else if (f === 'ovalo') s = '<ellipse cx="60" cy="56" rx="54" ry="34"' + st + '/>';
+      else s = '<path d="M60 6l50 36-19 60H29L10 42z"' + st + '/>'; /* pentágono */
+      return '<svg viewBox="0 0 120 112" role="img" aria-label="' + esc(f) + '">' + s + '</svg>';
+    },
+    /* patrón de figuras con un espacio ? */
+    patron: function (o) {
+      var s = '', x = 0;
+      o.items.forEach(function (it) {
+        if (it === '?') {
+          s += '<rect x="' + (x + 4) + '" y="4" width="52" height="52" rx="8" fill="#fff" stroke="#e07a2c" stroke-width="4" stroke-dasharray="7 5"/><text x="' + (x + 30) + '" y="42" text-anchor="middle" font-family="Roboto,Arial" font-weight="900" font-size="32" fill="#e07a2c">?</text>';
+        } else {
+          s += '<g transform="translate(' + (x + 4) + ',4) scale(.46)">' + FIG.figura(it).replace(/^<svg[^>]*>|<\/svg>$/g, '') + '</g>';
+        }
+        x += 62;
+      });
+      return '<svg viewBox="0 0 ' + x + ' 60" role="img" aria-label="Patrón de figuras">' + s + '</svg>';
+    },
+    /* objeto medido con clips */
+    clips: function (o) {
+      var n = o.n, W = n * 46 + 20, s = '';
+      s += FIG._largo(o.objeto || 'lapiz', n * 46, 10);
+      for (var i = 0; i < n; i++) {
+        var x = 10 + i * 46;
+        s += '<rect x="' + (x + 2) + '" y="64" width="42" height="16" rx="8" fill="none" stroke="#8e5cf7" stroke-width="4"/><rect x="' + (x + 9) + '" y="69" width="28" height="6" rx="3" fill="none" stroke="#8e5cf7" stroke-width="3"/>';
+      }
+      return '<svg viewBox="0 0 ' + W + ' 90" role="img" aria-label="Objeto medido con clips">' + s + '</svg>';
+    },
+    _largo: function (obj, L, x0) {
+      if (obj === 'crayon') return '<rect x="' + (x0 + 20) + '" y="20" width="' + (L - 20) + '" height="26" rx="4" fill="#34c759"/><path d="M' + (x0 + 20) + ' 20L' + x0 + ' 33L' + (x0 + 20) + ' 46z" fill="#1f9d48"/>';
+      if (obj === 'libro') return '<rect x="' + x0 + '" y="12" width="' + L + '" height="40" rx="4" fill="#2f8cff" stroke="#1c64c0" stroke-width="3"/><rect x="' + (x0 + 8) + '" y="20" width="' + (L - 16) + '" height="8" fill="#fff" opacity=".6"/>';
+      return '<rect x="' + (x0 + 24) + '" y="20" width="' + (L - 40) + '" height="26" fill="#ffcc00" stroke="#d9a300" stroke-width="2"/><rect x="' + (x0 + L - 18) + '" y="20" width="18" height="26" rx="4" fill="#ff5fa2"/><path d="M' + (x0 + 24) + ' 20L' + x0 + ' 33L' + (x0 + 24) + ' 46z" fill="#f5d6a8"/><path d="M' + (x0 + 8) + ' 29L' + x0 + ' 33L' + (x0 + 8) + ' 37z" fill="#2e3340"/>';
+    },
+    /* dinero (diseño genérico, no reproduce billetes reales) */
+    dinero: function (o) {
+      var v = o.v;
+      if (v === 0.5 || v === 0.25 || v === 1 && o.moneda) {
+        var txt = v === 1 ? 'Q1' : (v * 100) + 'c', r = v === 1 ? 30 : (v === 0.5 ? 27 : 24);
+        return '<svg viewBox="0 0 64 64" width="' + (r * 2.2) + '" height="' + (r * 2.2) + '" role="img" aria-label="Moneda de ' + txt + '"><circle cx="32" cy="32" r="' + r + '" fill="' + (v === 1 ? '#e8c35a' : '#c9ced8') + '" stroke="' + (v === 1 ? '#b8922c' : '#8f96a6') + '" stroke-width="4"/><circle cx="32" cy="32" r="' + (r - 7) + '" fill="none" stroke="' + (v === 1 ? '#b8922c' : '#8f96a6') + '" stroke-width="1.5" stroke-dasharray="3 3"/><text x="32" y="39" text-anchor="middle" font-family="Roboto,Arial" font-weight="900" font-size="' + (v === 1 ? 20 : 17) + '" fill="#2e3340">' + txt + '</text></svg>';
+      }
+      var col = { 1: '#7fbf6a', 5: '#b07fd6', 10: '#e0605f', 20: '#5b8fd9', 50: '#e8a33d', 100: '#c98a5b' }[v] || '#7fbf6a';
+      return '<svg viewBox="0 0 120 60" width="' + (o.w || 110) + '" role="img" aria-label="Billete de ' + v + ' quetzales"><rect x="2" y="2" width="116" height="56" rx="6" fill="' + col + '" stroke="#2e3340" stroke-width="2.5"/><rect x="9" y="9" width="102" height="42" rx="4" fill="none" stroke="#fff" stroke-width="2" opacity=".8"/><circle cx="36" cy="30" r="13" fill="#fff" opacity=".55"/><text x="80" y="40" text-anchor="middle" font-family="Roboto,Arial" font-weight="900" font-size="26" fill="#fff" stroke="#2e3340" stroke-width=".8">Q' + v + '</text></svg>';
+    },
+    /* producto de la tienda */
+    producto: function (o) {
+      var p = o.p, s;
+      if (p === 'lapiz') s = '<g transform="rotate(-35 60 60)"><rect x="20" y="48" width="70" height="24" fill="#ffcc00" stroke="#d9a300" stroke-width="3"/><rect x="88" y="48" width="16" height="24" rx="4" fill="#ff5fa2"/><path d="M20 48L2 60l18 12z" fill="#f5d6a8"/><path d="M8 56L2 60l6 4z" fill="#2e3340"/></g>';
+      else if (p === 'pelota') s = '<circle cx="60" cy="60" r="44" fill="#ff4d4f"/><path d="M16 60h88" stroke="#fff" stroke-width="8"/><circle cx="60" cy="60" r="12" fill="#fff" stroke="#2e3340" stroke-width="3"/>';
+      else if (p === 'cuaderno') s = '<rect x="26" y="14" width="68" height="92" rx="6" fill="#2f8cff" stroke="#1c64c0" stroke-width="3"/><rect x="40" y="30" width="44" height="16" rx="3" fill="#fff"/><path d="M26 24h-6M26 40h-6M26 56h-6M26 72h-6M26 88h-6" stroke="#2e3340" stroke-width="4" stroke-linecap="round"/>';
+      else if (p === 'jugo') s = '<path d="M38 30h44l-6 80H44z" fill="#ff9f1a" stroke="#c46f00" stroke-width="3"/><rect x="34" y="22" width="52" height="10" rx="3" fill="#fff" stroke="#c46f00" stroke-width="3"/><path d="M68 22l8-18" stroke="#34c759" stroke-width="5" stroke-linecap="round"/><circle cx="60" cy="68" r="12" fill="#ffcc00"/>';
+      else if (p === 'galleta') s = '<circle cx="60" cy="60" r="44" fill="#d9a066" stroke="#a8713a" stroke-width="4"/><circle cx="44" cy="46" r="6" fill="#5a3a1e"/><circle cx="72" cy="42" r="5" fill="#5a3a1e"/><circle cx="62" cy="70" r="6" fill="#5a3a1e"/><circle cx="40" cy="74" r="4" fill="#5a3a1e"/><circle cx="80" cy="72" r="5" fill="#5a3a1e"/>';
+      else if (p === 'carro') s = '<path d="M14 74V58l14-4 12-18h36l16 18h14v20z" fill="#8e5cf7" stroke="#5f35c4" stroke-width="3"/><path d="M46 42h12v14H38zM64 42h10l10 14H64z" fill="#cfe8ff"/><circle cx="36" cy="78" r="11" fill="#2e3340"/><circle cx="88" cy="78" r="11" fill="#2e3340"/>';
+      else if (p === 'mochila') s = '<rect x="26" y="28" width="68" height="80" rx="16" fill="#14c4c4" stroke="#0b8f8f" stroke-width="3"/><path d="M44 28v-8a16 16 0 0 1 32 0v8" fill="none" stroke="#0b8f8f" stroke-width="6"/><rect x="38" y="64" width="44" height="30" rx="6" fill="#0fa3a3"/>';
+      else s = FIG._obj('manzana').replace(/<path/g, '<path transform="translate(14,10) scale(2.3)"');
+      return '<svg viewBox="0 0 120 120" role="img" aria-label="' + esc(p) + '">' + s + '</svg>';
+    },
+    /* pictograma */
+    picto: function (o) {
+      var filas = o.datos, s = '', W = 120 + (o.max || 8) * 34;
+      filas.forEach(function (f, i) {
+        var y = 10 + i * 46;
+        s += '<text x="8" y="' + (y + 26) + '" font-family="Roboto,Arial" font-weight="700" font-size="17" fill="#2e3340">' + esc(f[0]) + '</text>';
+        for (var k = 0; k < f[1]; k++) s += '<g transform="translate(' + (112 + k * 34) + ',' + (y + 2) + ') scale(.75)">' + FIG._obj(o.icono || 'manzana') + '</g>';
+        s += '<line x1="4" x2="' + (W - 4) + '" y1="' + (y + 40) + '" y2="' + (y + 40) + '" stroke="#e3e5e9"/>';
+      });
+      return '<svg viewBox="0 0 ' + W + ' ' + (filas.length * 46 + 14) + '" role="img" aria-label="Pictograma">' + s + '</svg>';
+    },
+    /* gráfica de barras */
+    barras: function (o) {
+      var d = o.datos, max = o.max || 10, s = '', W = 80 + d.length * 90, H = 260, base = 220, esc_ = 180 / max;
+      for (var g = 0; g <= max; g += 2) {
+        var yy = base - g * esc_;
+        s += '<line x1="50" x2="' + (W - 10) + '" y1="' + yy + '" y2="' + yy + '" stroke="#e3e5e9"/><text x="40" y="' + (yy + 5) + '" text-anchor="end" font-size="14" font-family="Roboto,Arial" fill="#555">' + g + '</text>';
+      }
+      d.forEach(function (f, i) {
+        var x = 70 + i * 90, h = f[1] * esc_;
+        s += '<rect x="' + x + '" y="' + (base - h) + '" width="56" height="' + h + '" rx="4" fill="' + COLORES[i % COLORES.length] + '"/>';
+        s += '<text x="' + (x + 28) + '" y="' + (base + 22) + '" text-anchor="middle" font-size="15" font-weight="700" font-family="Roboto,Arial" fill="#2e3340">' + esc(f[0]) + '</text>';
+      });
+      s += '<line x1="50" x2="' + (W - 10) + '" y1="' + base + '" y2="' + base + '" stroke="#2e3340" stroke-width="2"/>';
+      return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Gráfica de barras">' + s + '</svg>';
+    },
+    /* tabla de valor posicional */
+    valorPosicional: function (o) {
+      var n = o.n, d = Math.floor(n / 10), u = n % 10;
+      return '<svg viewBox="0 0 320 150" role="img" aria-label="' + n + ' es ' + d + ' decenas y ' + u + ' unidades">' +
+        '<rect x="10" y="10" width="150" height="40" fill="#2e3340"/><rect x="160" y="10" width="150" height="40" fill="#e07a2c"/>' +
+        '<text x="85" y="37" text-anchor="middle" fill="#fff" font-family="Roboto,Arial" font-weight="700" font-size="18">Decenas (D)</text>' +
+        '<text x="235" y="37" text-anchor="middle" fill="#fff" font-family="Roboto,Arial" font-weight="700" font-size="18">Unidades (U)</text>' +
+        '<rect x="10" y="50" width="150" height="90" fill="#fff" stroke="#2e3340" stroke-width="2"/><rect x="160" y="50" width="150" height="90" fill="#fff" stroke="#2e3340" stroke-width="2"/>' +
+        '<text x="85" y="112" text-anchor="middle" fill="#2f8cff" font-family="Roboto,Arial" font-weight="900" font-size="54">' + d + '</text>' +
+        '<text x="235" y="112" text-anchor="middle" fill="#e07a2c" font-family="Roboto,Arial" font-weight="900" font-size="54">' + u + '</text></svg>';
+    }
+  };
+  function fig(o) { return o && FIG[o.fig] ? FIG[o.fig](o) : ''; }
+  /* contenido de una opción: número, texto o figura */
+  function opHtml(op) { return (op && typeof op === 'object') ? fig(op) : esc(op); }
+  function opKey(op) { return (op && typeof op === 'object') ? JSON.stringify(op) : String(op); }
+
+  /* ---------------- sonidos (Web Audio, sin archivos) ---------------- */
+  var audioCtx = null, sonidoOn = store.get('sonido', true);
+  function tono(freqs, dur, tipo) {
+    if (!sonidoOn) return;
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      var t = audioCtx.currentTime;
+      freqs.forEach(function (f, i) {
+        var o = audioCtx.createOscillator(), g = audioCtx.createGain();
+        o.type = tipo || 'sine'; o.frequency.value = f;
+        g.gain.setValueAtTime(0.0001, t + i * dur);
+        g.gain.exponentialRampToValueAtTime(0.18, t + i * dur + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + (i + 1) * dur);
+        o.connect(g); g.connect(audioCtx.destination);
+        o.start(t + i * dur); o.stop(t + (i + 1) * dur + 0.05);
+      });
+    } catch (e) { /* sin audio */ }
+  }
+  var SON = {
+    bien: function () { tono([660, 880], 0.12, 'triangle'); },
+    mal: function () { tono([220, 180], 0.16, 'square'); },
+    salto: function () { tono([400, 600, 800], 0.06, 'sine'); },
+    pop: function () { tono([900], 0.08, 'triangle'); },
+    fin: function () { tono([523, 659, 784, 1046], 0.14, 'triangle'); }
+  };
+
+  function confeti(cont, n) {
+    for (var i = 0; i < (n || 24); i++) {
+      var c = el('span', { class: 'confeti' });
+      c.style.left = Math.random() * 100 + '%';
+      c.style.background = COLORES[i % COLORES.length];
+      c.style.animationDuration = (1.2 + Math.random() * 1.3) + 's';
+      c.style.animationDelay = (Math.random() * 0.3) + 's';
+      cont.appendChild(c);
+      (function (c) { setTimeout(function () { c.remove(); }, 3000); })(c);
+    }
+  }
+
+  var ANIMO_BIEN = ['¡Muy bien!', '¡Excelente!', '¡Lo lograste!', '¡Genial!', '¡Súper!', '¡Correcto!'];
+  var ANIMO_MAL = ['¡Uy! Intenta otra vez', 'Casi... prueba de nuevo', 'Piensa un poquito más', '¡Tú puedes! Otra vez'];
+  function azar(a) { return a[Math.floor(Math.random() * a.length)]; }
+
+  /* ==========================================================
+     MARCO COMÚN DE CADA JUEGO
+     ========================================================== */
+  function montarJuego(cont, cfg, idJuego) {
+    var caja = el('div', { class: 'juego' });
+    var head = el('div', { class: 'juego-head' });
+    var record = store.get('juego:' + idJuego, 0);
+    head.innerHTML = '<h3>' + esc(cfg.titulo) + '</h3>';
+    var marc = el('div', { class: 'juego-marcador' });
+    var pAciertos = el('span', { class: 'pill', title: 'Aciertos' }, I.estrellita + ' <b>0</b>');
+    var bSon = el('button', { class: 'pill', type: 'button', 'aria-label': 'Activar o desactivar sonido', style: 'border:0;color:#fff;cursor:pointer' }, sonidoOn ? I.sonido : I.mudo);
+    bSon.addEventListener('click', function () { sonidoOn = !sonidoOn; store.set('sonido', sonidoOn); bSon.innerHTML = sonidoOn ? I.sonido : I.mudo; });
+    marc.appendChild(pAciertos); marc.appendChild(bSon);
+    head.appendChild(marc);
+    var body = el('div', { class: 'juego-body' });
+    caja.appendChild(head); caja.appendChild(body);
+    cont.appendChild(caja);
+
+    var estado = { aciertos: 0, errores: 0 };
+    var api = {
+      body: body,
+      acierto: function () { estado.aciertos++; pAciertos.querySelector('b').textContent = estado.aciertos; SON.bien(); },
+      error: function () { estado.errores++; SON.mal(); },
+      terminar: function (total) {
+        var ratio = estado.aciertos / Math.max(1, estado.aciertos + estado.errores);
+        if (total != null) ratio = Math.min(ratio, estado.aciertos / Math.max(1, total));
+        var est = ratio >= 0.85 ? 3 : ratio >= 0.6 ? 2 : 1;
+        if (est > record) { record = est; store.set('juego:' + idJuego, est); }
+        SON.fin();
+        body.innerHTML = '';
+        var f = el('div', { class: 'final' });
+        var msg = est === 3 ? '¡Eres una estrella de las matemáticas!' : est === 2 ? '¡Muy buen trabajo! Puedes intentarlo otra vez para ganar más estrellas.' : '¡Buen intento! Juega otra vez y verás cómo mejoras.';
+        f.innerHTML = '<div class="estrellas">' + I.estrellaRelleno(est >= 1) + I.estrellaRelleno(est >= 2) + I.estrellaRelleno(est >= 3) + '</div>' +
+          '<h4>¡Terminaste!</h4><p>' + msg + '</p><p>Aciertos: <b>' + estado.aciertos + '</b> &nbsp; Intentos fallidos: <b>' + estado.errores + '</b></p>';
+        var b = el('button', { class: 'btn-j azul', type: 'button' }, 'Jugar otra vez');
+        b.addEventListener('click', function () { iniciar(); });
+        f.appendChild(b);
+        body.appendChild(f);
+        confeti(body, 40);
+      }
+    };
+
+    function iniciar() {
+      estado.aciertos = 0; estado.errores = 0;
+      pAciertos.querySelector('b').textContent = '0';
+      body.innerHTML = '';
+      JUEGOS[cfg.tipo](api, cfg);
+    }
+
+    /* pantalla de instrucciones */
+    var ins = el('div', { class: 'instrucciones' });
+    var pasos = (cfg.instrucciones || []).map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('');
+    ins.innerHTML = '<strong>¿Cómo se juega?</strong><ol>' + pasos + '</ol>';
+    body.appendChild(ins);
+    var zona = el('div', { class: 'centro' });
+    if (record) zona.innerHTML = '<p style="margin:0 0 10px;font-family:var(--f-texto)">Tu mejor resultado: ' + record + ' de 3 estrellas</p>';
+    var bj = el('button', { class: 'btn-jugar', type: 'button' }, '¡A jugar!');
+    bj.addEventListener('click', iniciar);
+    zona.appendChild(bj);
+    body.appendChild(zona);
+  }
+
+  /* barra de progreso + pregunta (compartido) */
+  function cabeceraPregunta(api, total) {
+    var prog = el('div', { class: 'progreso' }, '<div></div>');
+    var preg = el('div', { class: 'pregunta', 'aria-live': 'polite' });
+    api.body.appendChild(prog); api.body.appendChild(preg);
+    return {
+      prog: prog, preg: preg,
+      poner: function (i, q) {
+        prog.firstChild.style.width = (i / total * 100) + '%';
+        preg.innerHTML = esc(q.q) + (q.fig ? '<span class="fig">' + fig(q.fig) + '</span>' : '');
+      }
+    };
+  }
+  function feedbackEl(api) { var f = el('div', { class: 'feedback', 'aria-live': 'polite' }); return f; }
+  function decir(f, ok, txt) { f.className = 'feedback ' + (ok ? 'bien' : 'mal'); f.textContent = txt || (ok ? azar(ANIMO_BIEN) : azar(ANIMO_MAL)); }
+
+  /* ==========================================================
+     JUEGOS
+     ========================================================== */
+  var SVG_NENUFAR = '<svg viewBox="0 0 120 90" aria-hidden="true"><ellipse cx="60" cy="50" rx="56" ry="34" fill="#3aa635"/><ellipse cx="60" cy="46" rx="54" ry="32" fill="#5fd35a"/><path d="M60 46L118 30V50z" fill="#3fb3e8"/></svg>';
+  var SVG_RANA = '<svg viewBox="0 0 120 100" aria-hidden="true"><ellipse cx="60" cy="66" rx="44" ry="30" fill="#34c759"/><ellipse cx="60" cy="74" rx="28" ry="16" fill="#b8f5a8"/><circle cx="38" cy="34" r="16" fill="#34c759"/><circle cx="82" cy="34" r="16" fill="#34c759"/><circle cx="38" cy="32" r="10" fill="#fff"/><circle cx="82" cy="32" r="10" fill="#fff"/><circle cx="40" cy="33" r="5" fill="#2e3340"/><circle cx="80" cy="33" r="5" fill="#2e3340"/><path d="M44 58q16 12 32 0" fill="none" stroke="#1f7a33" stroke-width="4" stroke-linecap="round"/><circle cx="34" cy="56" r="5" fill="#ff8fab"/><circle cx="86" cy="56" r="5" fill="#ff8fab"/><path d="M18 88q-14 4-12 10M102 88q14 4 12 10" stroke="#34c759" stroke-width="9" stroke-linecap="round" fill="none"/></svg>';
+  var SVG_NUBE = '<svg viewBox="0 0 160 84" aria-hidden="true"><path d="M30 76a24 24 0 0 1-2-48 32 32 0 0 1 60-10 26 26 0 0 1 44 16 22 22 0 0 1-4 42z" fill="#fff" stroke="#bfe3ff" stroke-width="3"/></svg>';
+  var SVG_AVION = '<svg viewBox="0 0 160 90" aria-hidden="true"><path d="M10 48q0-14 30-14h80q26 0 32 14-6 14-32 14H40q-30 0-30-14z" fill="#ff4d4f"/><path d="M60 34L90 4h14L88 34zM60 62l30 26h14L88 62z" fill="#ffcc00"/><path d="M14 46L4 22h14l14 16z" fill="#ffcc00"/><circle cx="104" cy="46" r="6" fill="#bfe3ff"/><circle cx="86" cy="46" r="6" fill="#bfe3ff"/><circle cx="68" cy="46" r="6" fill="#bfe3ff"/><path d="M136 40q12 2 16 8-4 6-16 8z" fill="#bfe3ff"/><circle cx="153" cy="48" r="4" fill="#2e3340"/></svg>';
+  var SVG_SOL = '<svg viewBox="0 0 60 60" class="sol" aria-hidden="true"><circle cx="30" cy="30" r="14" fill="#ffcc00"/><g stroke="#ffcc00" stroke-width="4" stroke-linecap="round"><path d="M30 4v8M30 48v8M4 30h8M48 30h8M11 11l6 6M43 43l6 6M11 49l6-6M43 17l6-6"/></g></svg>';
+  function svgGlobo(c) { return '<svg viewBox="0 0 96 140" aria-hidden="true"><path d="M48 96q4 14-4 24t2 20" fill="none" stroke="#7a7f8c" stroke-width="2"/><ellipse cx="48" cy="50" rx="42" ry="48" fill="' + c + '"/><path d="M42 97h12l-6 8z" fill="' + c + '"/><ellipse cx="32" cy="30" rx="8" ry="14" fill="#fff" opacity=".35"/></svg>'; }
+  function svgCoco(signo) {
+    /* cocodrilo cuya boca abierta forma el signo */
+    if (signo === '=') return '<svg viewBox="0 0 120 70" aria-hidden="true"><rect x="10" y="16" width="100" height="14" rx="7" fill="#34c759"/><rect x="10" y="40" width="100" height="14" rx="7" fill="#34c759"/><circle cx="96" cy="12" r="7" fill="#fff" stroke="#1f7a33" stroke-width="2"/><circle cx="97" cy="12" r="3" fill="#2e3340"/></svg>';
+    var g = '<path d="M108 30L14 6l-4 10 86 16z" fill="#34c759"/><path d="M108 40L14 64l-4-10 86-16z" fill="#34c759"/><path d="M20 12l4 8M34 16l4 8M48 19l4 8M62 23l3 7M20 58l4-8M34 54l4-8M48 51l4-8M62 47l3-7" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="96" cy="22" r="7" fill="#fff" stroke="#1f7a33" stroke-width="2"/><circle cx="95" cy="22" r="3" fill="#2e3340"/><rect x="100" y="28" width="16" height="14" rx="7" fill="#1f9d48"/>';
+    /* dibujo base: cabeza a la derecha y boca abierta hacia la izquierda = ">" */
+    if (signo === '<') return '<svg viewBox="0 0 120 70" aria-hidden="true"><g transform="translate(120,0) scale(-1,1)">' + g + '</g></svg>';
+    return '<svg viewBox="0 0 120 70" aria-hidden="true">' + g + '</svg>';
+  }
+
+  var JUEGOS = {};
+
+  /* ---------- Rana saltarina ---------- */
+  JUEGOS.rana = function (api, cfg) {
+    var qs = barajar(cfg.preguntas), i = 0;
+    var cab = cabeceraPregunta(api, qs.length);
+    var escena = el('div', { class: 'escena escena-rana' });
+    escena.innerHTML = '<div class="orilla"></div>';
+    var pads = el('div', { class: 'nenufares' });
+    var rana = el('div', { class: 'rana' }, SVG_RANA);
+    escena.appendChild(pads); escena.appendChild(rana);
+    api.body.appendChild(escena);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    var bloqueo = false;
+
+    function volver() { rana.style.left = ''; rana.style.bottom = ''; }
+    function mostrar() {
+      if (i >= qs.length) { cab.prog.firstChild.style.width = '100%'; return setTimeout(function () { api.terminar(); }, 500); }
+      var q = qs[i]; cab.poner(i, q); fb.textContent = ''; fb.className = 'feedback';
+      pads.innerHTML = ''; bloqueo = false;
+      barajar(q.ops).forEach(function (op) {
+        var b = el('button', { class: 'nenufar', type: 'button', 'aria-label': 'Saltar a ' + (typeof op === 'object' ? 'figura' : op) }, SVG_NENUFAR + '<span>' + opHtml(op) + '</span>');
+        b.addEventListener('click', function () {
+          if (bloqueo || b.disabled) return;
+          bloqueo = true;
+          var er = escena.getBoundingClientRect(), br = b.getBoundingClientRect();
+          rana.style.left = (br.left - er.left + br.width / 2 - rana.offsetWidth / 2) + 'px';
+          rana.style.bottom = (er.bottom - br.bottom + br.height * 0.35) + 'px';
+          rana.classList.remove('salta'); void rana.offsetWidth; rana.classList.add('salta');
+          SON.salto();
+          setTimeout(function () {
+            if (opKey(op) === opKey(q.r)) {
+              b.classList.add('brilla'); api.acierto(); decir(fb, true); confeti(escena, 18);
+              setTimeout(function () { volver(); i++; setTimeout(mostrar, 450); }, 900);
+            } else {
+              b.classList.add('hunde'); b.disabled = true; api.error(); decir(fb, false, q.pista ? azar(ANIMO_MAL) + '. Pista: ' + q.pista : null);
+              rana.classList.add('sacude');
+              setTimeout(function () { rana.classList.remove('sacude'); volver(); bloqueo = false; }, 700);
+            }
+          }, 620);
+        });
+        pads.appendChild(b);
+      });
+    }
+    mostrar();
+  };
+
+  /* ---------- Avión de las sumas ---------- */
+  JUEGOS.avion = function (api, cfg) {
+    var qs = barajar(cfg.preguntas), i = 0;
+    var cab = cabeceraPregunta(api, qs.length);
+    var escena = el('div', { class: 'escena escena-avion' }, SVG_SOL);
+    var avion = el('div', { class: 'avion' }, SVG_AVION);
+    var nubes = el('div', { class: 'nubes' });
+    escena.appendChild(avion); escena.appendChild(nubes);
+    api.body.appendChild(escena);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    var bloqueo = false;
+    function volver() { avion.style.left = ''; avion.style.top = ''; }
+    function mostrar() {
+      if (i >= qs.length) { cab.prog.firstChild.style.width = '100%'; return setTimeout(function () { api.terminar(); }, 500); }
+      var q = qs[i]; cab.poner(i, q); fb.textContent = ''; fb.className = 'feedback';
+      nubes.innerHTML = ''; bloqueo = false;
+      barajar(q.ops).forEach(function (op) {
+        var b = el('button', { class: 'nube', type: 'button', 'aria-label': 'Volar a ' + op }, SVG_NUBE + '<span>' + opHtml(op) + '</span>');
+        b.addEventListener('click', function () {
+          if (bloqueo || b.disabled) return;
+          bloqueo = true;
+          var er = escena.getBoundingClientRect(), br = b.getBoundingClientRect();
+          avion.style.left = (br.left - er.left - avion.offsetWidth * 0.55) + 'px';
+          avion.style.top = (br.top - er.top + br.height / 2 - avion.offsetHeight / 2) + 'px';
+          setTimeout(function () {
+            if (opKey(op) === opKey(q.r)) {
+              b.classList.add('explota'); api.acierto(); decir(fb, true); confeti(escena, 20);
+              setTimeout(function () { volver(); i++; setTimeout(mostrar, 500); }, 800);
+            } else {
+              b.classList.add('gris'); b.disabled = true; api.error(); decir(fb, false, q.pista ? azar(ANIMO_MAL) + '. Pista: ' + q.pista : null);
+              escena.classList.add('sacude');
+              setTimeout(function () { escena.classList.remove('sacude'); volver(); bloqueo = false; }, 600);
+            }
+          }, 720);
+        });
+        nubes.appendChild(b);
+      });
+    }
+    mostrar();
+  };
+
+  /* ---------- Globos: revienta el globo correcto ---------- */
+  JUEGOS.globos = function (api, cfg) {
+    var qs = barajar(cfg.preguntas), i = 0, activa = 0;
+    var cab = cabeceraPregunta(api, qs.length);
+    var escena = el('div', { class: 'escena escena-globos' });
+    api.body.appendChild(escena);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    var colores = ['#ff4d4f', '#2f8cff', '#34c759', '#ffb300', '#8e5cf7', '#ff5fa2'];
+
+    function lanzar(op, q, token, retraso) {
+      var b = el('button', { class: 'globo', type: 'button', 'aria-label': 'Globo ' + op }, svgGlobo(azar(colores)) + '<span>' + opHtml(op) + '</span>');
+      b.style.left = (4 + Math.random() * 76) + '%';
+      b.style.animationDuration = (7 + Math.random() * 3) + 's';
+      b.style.animationDelay = retraso + 's';
+      b.addEventListener('animationend', function (e) {
+        if (e.animationName === 'subir') { b.remove(); if (token === activa) lanzar(op, q, token, 0); }
+      });
+      b.addEventListener('click', function () {
+        if (token !== activa || b.classList.contains('pop')) return;
+        SON.pop();
+        b.classList.add('pop');
+        setTimeout(function () { b.remove(); }, 300);
+        if (opKey(op) === opKey(q.r)) {
+          activa = -1; api.acierto(); decir(fb, true); confeti(escena, 24);
+          setTimeout(function () { i++; mostrar(); }, 900);
+        } else { api.error(); decir(fb, false, q.pista ? azar(ANIMO_MAL) + '. Pista: ' + q.pista : null); setTimeout(function () { if (token === activa) lanzar(op, q, token, 1); }, 300); }
+      });
+      escena.appendChild(b);
+    }
+    function mostrar() {
+      escena.innerHTML = '';
+      if (i >= qs.length) { cab.prog.firstChild.style.width = '100%'; return setTimeout(function () { api.terminar(); }, 300); }
+      var q = qs[i]; cab.poner(i, q); fb.textContent = ''; fb.className = 'feedback';
+      activa = i + 1;
+      var token = activa;
+      barajar(q.ops).forEach(function (op, k) { lanzar(op, q, token, k * 1.1); });
+    }
+    mostrar();
+  };
+
+  /* ---------- Cocodrilo comparador ---------- */
+  JUEGOS.cocodrilo = function (api, cfg) {
+    var qs = barajar(cfg.preguntas), i = 0;
+    var prog = el('div', { class: 'progreso' }, '<div></div>');
+    api.body.appendChild(prog);
+    var escena = el('div', { class: 'escena escena-coco' });
+    api.body.appendChild(escena);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    function val(x) { return typeof x === 'object' ? x.n : x; }
+    function mostrar() {
+      prog.firstChild.style.width = (i / qs.length * 100) + '%';
+      if (i >= qs.length) return setTimeout(function () { api.terminar(); }, 400);
+      var q = qs[i], a = val(q.a), b = val(q.b), r = a > b ? '>' : a < b ? '<' : '=';
+      fb.textContent = ''; fb.className = 'feedback';
+      escena.innerHTML = '<p style="text-align:center;margin:0 0 10px;font-weight:700;color:#2b6a20;font-size:19px">El cocodrilo siempre abre la boca hacia el número MAYOR</p>';
+      var fila = el('div', { class: 'comparar' });
+      var hueco = el('div', { class: 'hueco' }, '<span style="font-size:40px;color:#3c8d2f;font-weight:900">?</span>');
+      fila.appendChild(el('div', { class: 'num-grande' }, typeof q.a === 'object' ? '<span class="fig">' + fig(q.a) + '</span>' : esc(q.a)));
+      fila.appendChild(hueco);
+      fila.appendChild(el('div', { class: 'num-grande' }, typeof q.b === 'object' ? '<span class="fig">' + fig(q.b) + '</span>' : esc(q.b)));
+      escena.appendChild(fila);
+      var ops = el('div', { class: 'opciones-coco' }), bloqueo = false;
+      [['>', 'mayor que'], ['<', 'menor que'], ['=', 'igual a']].forEach(function (s) {
+        var bt = el('button', { class: 'btn-coco', type: 'button', 'aria-label': s[1] }, svgCoco(s[0]) + '<b>' + esc(s[0]) + '</b>');
+        bt.addEventListener('click', function () {
+          if (bloqueo) return;
+          if (s[0] === r) {
+            bloqueo = true; hueco.innerHTML = svgCoco(s[0]); hueco.style.borderStyle = 'solid';
+            api.acierto(); decir(fb, true, azar(ANIMO_BIEN) + ' ' + a + ' es ' + s[1] + ' ' + b + '.'); confeti(escena, 16);
+            setTimeout(function () { i++; mostrar(); }, 1300);
+          } else { bt.classList.add('sacude'); setTimeout(function () { bt.classList.remove('sacude'); }, 450); api.error(); decir(fb, false); }
+        });
+        ops.appendChild(bt);
+      });
+      escena.appendChild(ops);
+    }
+    mostrar();
+  };
+
+  /* ---------- Ruleta de preguntas ---------- */
+  JUEGOS.ruleta = function (api, cfg) {
+    var qs = cfg.preguntas.slice(0, 8), N = qs.length, hechas = [], giro = 0;
+    var zona = el('div', { class: 'ruleta-zona' });
+    var wrap = el('div', { class: 'ruleta-wrap' });
+    function rueda() {
+      var s = '', a = 360 / N;
+      for (var k = 0; k < N; k++) {
+        var a0 = (k * a - 90) * Math.PI / 180, a1 = ((k + 1) * a - 90) * Math.PI / 180, am = ((k + .5) * a - 90) * Math.PI / 180;
+        var x0 = 100 + 96 * Math.cos(a0), y0 = 100 + 96 * Math.sin(a0), x1 = 100 + 96 * Math.cos(a1), y1 = 100 + 96 * Math.sin(a1);
+        var col = hechas.indexOf(k) >= 0 ? '#d5d9e2' : COLORES[k % COLORES.length];
+        s += '<path d="M100 100L' + x0 + ' ' + y0 + 'A96 96 0 ' + (a > 180 ? 1 : 0) + ' 1 ' + x1 + ' ' + y1 + 'z" fill="' + col + '" stroke="#fff" stroke-width="3"/>';
+        s += '<text x="' + (100 + 62 * Math.cos(am)) + '" y="' + (100 + 62 * Math.sin(am) + 9) + '" text-anchor="middle" font-family="Roboto,Arial" font-weight="900" font-size="26" fill="#fff"">' + (k + 1) + '</text>';
+      }
+      s += '<circle cx="100" cy="100" r="16" fill="#2e3340" stroke="#fff" stroke-width="4"/>';
+      return s;
+    }
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 200 200'); svg.setAttribute('class', 'rueda'); svg.innerHTML = rueda();
+    wrap.innerHTML = '<svg class="flecha" viewBox="0 0 40 50" aria-hidden="true"><path d="M4 4h32L20 46z" fill="#2e3340" stroke="#fff" stroke-width="3"/></svg>';
+    wrap.appendChild(svg);
+    zona.appendChild(wrap);
+    var bGirar = el('button', { class: 'btn-j naranja', type: 'button' }, 'Girar la ruleta');
+    zona.appendChild(bGirar);
+    var preg = el('div', { class: 'pregunta', style: 'display:none' });
+    var ops = el('div', { class: 'opciones' });
+    var fb = feedbackEl();
+    zona.appendChild(preg); zona.appendChild(ops); zona.appendChild(fb);
+    api.body.appendChild(zona);
+
+    bGirar.addEventListener('click', function () {
+      var libres = []; for (var k = 0; k < N; k++) if (hechas.indexOf(k) < 0) libres.push(k);
+      var elegido = azar(libres), a = 360 / N, centro = (elegido + .5) * a;
+      bGirar.disabled = true; bGirar.style.opacity = .5; preg.style.display = 'none'; ops.innerHTML = ''; fb.textContent = '';
+      giro += 1440 + ((360 - centro) - (giro % 360) + 360) % 360;
+      svg.style.transform = 'rotate(' + giro + 'deg)';
+      tono([300, 350, 400, 450, 500, 550], 0.1, 'triangle');
+      setTimeout(function () { preguntar(elegido); }, 3300);
+    });
+    function preguntar(k) {
+      var q = qs[k];
+      preg.style.display = ''; preg.innerHTML = '<span style="color:#e07a2c">Pregunta ' + (k + 1) + ':</span> ' + esc(q.q) + (q.fig ? '<span class="fig">' + fig(q.fig) + '</span>' : '');
+      fb.textContent = ''; fb.className = 'feedback';
+      var listo = false;
+      barajar(q.ops).forEach(function (op, j) {
+        var b = el('button', { class: 'btn-op', type: 'button', style: 'background:' + COLORES[(j + 2) % COLORES.length] }, opHtml(op));
+        b.addEventListener('click', function () {
+          if (listo || b.disabled) return;
+          if (opKey(op) === opKey(q.r)) {
+            listo = true; api.acierto(); decir(fb, true); confeti(api.body, 20);
+            hechas.push(k); svg.innerHTML = rueda();
+            setTimeout(function () {
+              if (hechas.length === N) return api.terminar();
+              bGirar.disabled = false; bGirar.style.opacity = 1; preg.style.display = 'none'; ops.innerHTML = ''; fb.textContent = 'Gira otra vez';
+              fb.className = 'feedback';
+            }, 1100);
+          } else { b.disabled = true; b.style.opacity = .35; api.error(); decir(fb, false, q.pista ? azar(ANIMO_MAL) + '. Pista: ' + q.pista : null); }
+        });
+        ops.appendChild(b);
+      });
+    }
+  };
+
+  /* ---------- Emparejar ---------- */
+  JUEGOS.emparejar = function (api, cfg) {
+    var pares = barajar(cfg.pares).slice(0, cfg.max || 6), hechos = 0, sel = null, colorI = 0;
+    var cont = el('div', { class: 'emparejar' });
+    var izq = el('div', { class: 'col' }), der = el('div', { class: 'col' });
+    cont.appendChild(izq); cont.appendChild(der);
+    api.body.appendChild(cont);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    function ficha(contenido, id, lado) {
+      var f = el('button', { class: 'ficha', type: 'button' }, opHtml(contenido));
+      f.dataset.id = id; f.dataset.lado = lado;
+      f.addEventListener('click', function () {
+        if (f.classList.contains('hecha')) return;
+        if (!sel || sel.dataset.lado === lado) {
+          if (sel) sel.classList.remove('sel');
+          sel = f; f.classList.add('sel'); tono([520], 0.06); return;
+        }
+        if (sel.dataset.id === id) {
+          var c = COLORES[colorI++ % COLORES.length];
+          [sel, f].forEach(function (x) { x.classList.remove('sel'); x.classList.add('hecha'); x.style.background = c; });
+          sel = null; hechos++; api.acierto(); decir(fb, true);
+          if (hechos === pares.length) setTimeout(function () { api.terminar(); }, 900);
+        } else {
+          var s = sel; s.classList.remove('sel'); sel = null;
+          [s, f].forEach(function (x) { x.classList.add('error'); setTimeout(function () { x.classList.remove('error'); }, 450); });
+          api.error(); decir(fb, false);
+        }
+      });
+      return f;
+    }
+    var L = pares.map(function (p, k) { return ficha(p[0], 'p' + k, 'i'); });
+    var R = pares.map(function (p, k) { return ficha(p[1], 'p' + k, 'd'); });
+    barajar(L).forEach(function (f) { izq.appendChild(f); });
+    barajar(R).forEach(function (f) { der.appendChild(f); });
+  };
+
+  /* ---------- Memoria (parejas) ---------- */
+  JUEGOS.memoria = function (api, cfg) {
+    var pares = barajar(cfg.pares).slice(0, cfg.max || 6), cartas = [], abiertas = [], hechos = 0, bloqueo = false;
+    pares.forEach(function (p, k) { cartas.push({ id: k, c: p[0] }, { id: k, c: p[1] }); });
+    var grid = el('div', { class: 'memoria' });
+    api.body.appendChild(grid);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    barajar(cartas).forEach(function (c) {
+      var b = el('button', { class: 'carta', type: 'button', 'aria-label': 'Carta' },
+        '<div class="carta-in"><div class="cara atras">' + I.signo + '</div><div class="cara frente">' + opHtml(c.c) + '</div></div>');
+      b.addEventListener('click', function () {
+        if (bloqueo || b.classList.contains('volteada') || b.classList.contains('hecha')) return;
+        b.classList.add('volteada'); tono([600], 0.05);
+        abiertas.push({ b: b, id: c.id });
+        if (abiertas.length === 2) {
+          bloqueo = true;
+          var a = abiertas[0], z = abiertas[1];
+          if (a.id === z.id) {
+            setTimeout(function () {
+              a.b.classList.add('hecha'); z.b.classList.add('hecha'); abiertas = []; bloqueo = false; hechos++;
+              api.acierto(); decir(fb, true);
+              if (hechos === pares.length) setTimeout(function () { api.terminar(); }, 700);
+            }, 350);
+          } else {
+            api.error(); decir(fb, false, 'No son pareja. ¡Recuerda dónde están!');
+            setTimeout(function () { a.b.classList.remove('volteada'); z.b.classList.remove('volteada'); abiertas = []; bloqueo = false; }, 1100);
+          }
+        }
+      });
+      grid.appendChild(b);
+    });
+  };
+
+  /* ---------- Clasificar rápido ---------- */
+  JUEGOS.clasificar = function (api, cfg) {
+    var items = barajar(cfg.items), i = 0, fin = false, cuentas = cfg.grupos.map(function () { return 0; });
+    var reloj = null, timer = null;
+    if (cfg.tiempo) { reloj = el('div', { class: 'reloj' }, '<div></div>'); api.body.appendChild(reloj); }
+    var prog = el('div', { class: 'progreso' }, '<div></div>'); api.body.appendChild(prog);
+    var tarjeta = el('div', { class: 'clasif-tarjeta' }); api.body.appendChild(tarjeta);
+    var canastas = el('div', { class: 'canastas' }); api.body.appendChild(canastas);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    var colores = ['#2f8cff', '#ff5fa2', '#34c759', '#ff7a1a'];
+    var bots = cfg.grupos.map(function (g, k) {
+      var b = el('button', { class: 'canasta', type: 'button', style: 'background:' + colores[k % 4] }, I.canasta + '<span>' + esc(g) + '</span><span class="cuenta">0</span>');
+      b.addEventListener('click', function () { elegir(k, b); });
+      canastas.appendChild(b); return b;
+    });
+    function terminar() { if (fin) return; fin = true; clearInterval(timer); api.terminar(items.length); }
+    function mostrar() {
+      prog.firstChild.style.width = (i / items.length * 100) + '%';
+      if (i >= items.length) return setTimeout(terminar, 400);
+      var it = items[i];
+      tarjeta.style.animation = 'none'; void tarjeta.offsetWidth; tarjeta.style.animation = '';
+      tarjeta.innerHTML = it.fig ? fig(it.fig) : esc(it.x);
+    }
+    function elegir(k, b) {
+      if (fin || i >= items.length) return;
+      var it = items[i];
+      if (it.g === k) { cuentas[k]++; b.querySelector('.cuenta').textContent = cuentas[k]; api.acierto(); decir(fb, true); }
+      else { api.error(); b.classList.add('sacude'); setTimeout(function () { b.classList.remove('sacude'); }, 450); decir(fb, false, 'Va en: ' + cfg.grupos[it.g]); }
+      i++; mostrar();
+    }
+    if (cfg.tiempo) {
+      var t0 = Date.now(), T = cfg.tiempo * 1000;
+      timer = setInterval(function () {
+        var r = Math.max(0, 1 - (Date.now() - t0) / T);
+        reloj.firstChild.style.width = (r * 100) + '%';
+        if (r <= 0) terminar();
+        if (!document.body.contains(reloj)) clearInterval(timer);
+      }, 200);
+    }
+    mostrar();
+  };
+
+  /* ---------- Ordenar ---------- */
+  JUEGOS.ordenar = function (api, cfg) {
+    var rondas = cfg.rondas, r = 0;
+    var titulo = el('div', { class: 'pregunta' }); api.body.appendChild(titulo);
+    var slots = el('div', { class: 'ordenar-slots' }); api.body.appendChild(slots);
+    var fichas = el('div', { class: 'ordenar-fichas' }); api.body.appendChild(fichas);
+    var acc = el('div', { class: 'centro' }); api.body.appendChild(acc);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    function ronda() {
+      if (r >= rondas.length) return api.terminar();
+      var R = rondas[r], ancho = !!R.ancho, colocados = [];
+      titulo.innerHTML = esc(R.q || cfg.q || 'Ordena') + ' <span style="font-size:.6em;color:#888">(' + (r + 1) + ' de ' + rondas.length + ')</span>';
+      slots.innerHTML = ''; fichas.innerHTML = ''; acc.innerHTML = ''; fb.textContent = ''; fb.className = 'feedback';
+      if (ancho) { slots.style.flexDirection = 'column'; slots.style.alignItems = 'center'; fichas.style.flexDirection = 'column'; fichas.style.alignItems = 'center'; }
+      else { slots.style.flexDirection = ''; slots.style.alignItems = ''; fichas.style.flexDirection = ''; fichas.style.alignItems = ''; }
+      var S = R.items.map(function (_, k) {
+        var s = el('button', { class: 'slot' + (ancho ? ' ancho' : ''), type: 'button' }, ancho ? '<span class="n">' + (k + 1) + '.</span>' : '');
+        s.addEventListener('click', function () {
+          if (!s._f) return;
+          s._f.classList.remove('usada'); s._f = null; s.classList.remove('lleno', 'bien', 'malo');
+          s.innerHTML = ancho ? '<span class="n">' + (k + 1) + '.</span>' : '';
+          bComp.style.display = 'none';
+        });
+        slots.appendChild(s); return s;
+      });
+      barajar(R.items.map(function (x, k) { return { x: x, k: k }; })).forEach(function (o, j) {
+        var f = el('button', { class: 'ficha-o' + (ancho ? ' ancho' : ''), type: 'button', style: 'background:' + COLORES[j % COLORES.length] }, opHtml(o.x));
+        f._k = o.k;
+        f.addEventListener('click', function () {
+          if (f.classList.contains('usada')) return;
+          for (var k = 0; k < S.length; k++) if (!S[k]._f) {
+            S[k]._f = f; S[k].classList.add('lleno'); S[k].innerHTML = (ancho ? '<span class="n">' + (k + 1) + '.</span>' : '') + opHtml(o.x);
+            f.classList.add('usada'); tono([500 + k * 60], 0.06); break;
+          }
+          if (S.every(function (s) { return s._f; })) bComp.style.display = '';
+        });
+        fichas.appendChild(f);
+      });
+      var bComp = el('button', { class: 'btn-j', type: 'button', style: 'display:none' }, 'Comprobar');
+      bComp.addEventListener('click', function () {
+        var ok = true;
+        S.forEach(function (s, k) {
+          var bien = opKey(R.items[s._f._k]) === opKey(R.items[k]);
+          s.classList.add(bien ? 'bien' : 'malo'); if (!bien) ok = false;
+        });
+        if (ok) { api.acierto(); decir(fb, true); confeti(api.body, 24); bComp.style.display = 'none'; setTimeout(function () { r++; ronda(); }, 1300); }
+        else { api.error(); decir(fb, false, 'Las casillas en rojo no van ahí. Tócalas para quitarlas y vuelve a intentar.'); }
+      });
+      acc.appendChild(bComp);
+    }
+    ronda();
+  };
+
+  /* ---------- Bloques base 10 ---------- */
+  JUEGOS.bloques = function (api, cfg) {
+    var rondas = barajar(cfg.rondas), r = 0, D = 0, U = 0;
+    var preg = el('div', { class: 'pregunta' }); api.body.appendChild(preg);
+    var area = el('div', { class: 'bloques-area', 'aria-live': 'polite' }); api.body.appendChild(area);
+    var ctr = el('div', { class: 'controles' });
+    function control(nombre, set, get) {
+      var c = el('div', { class: 'control' });
+      c.innerHTML = '<b>' + nombre + '</b><div class="valor">0</div>';
+      var m = el('button', { class: 'menos', type: 'button', 'aria-label': 'Quitar ' + nombre }, '-');
+      var p = el('button', { class: 'mas', type: 'button', 'aria-label': 'Agregar ' + nombre }, '+');
+      m.addEventListener('click', function () { if (get() > 0) { set(get() - 1); dibujar(); tono([420], .05); } });
+      p.addEventListener('click', function () { if (get() < 9) { set(get() + 1); dibujar(); tono([620], .05); } });
+      var row = el('div'); row.appendChild(m); row.appendChild(p); c.appendChild(row);
+      ctr.appendChild(c); return c.querySelector('.valor');
+    }
+    var vD = control('Decenas (barras de 10)', function (v) { D = v; }, function () { return D; });
+    var vU = control('Unidades (cubitos)', function (v) { U = v; }, function () { return U; });
+    api.body.appendChild(ctr);
+    var total = el('div', { class: 'total', style: 'margin-top:12px' }); api.body.appendChild(total);
+    var acc = el('div', { class: 'centro', style: 'margin-top:10px' });
+    var b = el('button', { class: 'btn-j', type: 'button' }, 'Comprobar'); acc.appendChild(b); api.body.appendChild(acc);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    function dibujar() {
+      vD.textContent = D; vU.textContent = U;
+      var h = '<div class="grupo">';
+      for (var k = 0; k < D; k++) h += '<div class="barra-10">' + new Array(11).join('<i></i>') + '</div>';
+      h += '</div><div class="unos">';
+      for (var j = 0; j < U; j++) h += '<div class="cubo-1"></div>';
+      area.innerHTML = h + '</div>';
+      total.textContent = 'Formaste el número: ' + (D * 10 + U);
+    }
+    function ronda() {
+      if (r >= rondas.length) return api.terminar();
+      D = 0; U = 0; dibujar(); fb.textContent = ''; fb.className = 'feedback';
+      preg.innerHTML = 'Forma el número <span style="color:#e07a2c">' + rondas[r] + '</span>';
+    }
+    b.addEventListener('click', function () {
+      if (r >= rondas.length) return;
+      var meta = rondas[r];
+      if (D * 10 + U === meta) {
+        api.acierto(); decir(fb, true, azar(ANIMO_BIEN) + ' ' + meta + ' = ' + Math.floor(meta / 10) + ' decenas y ' + (meta % 10) + ' unidades.'); confeti(api.body, 24);
+        r++; setTimeout(ronda, 1600);
+      } else {
+        api.error();
+        decir(fb, false, (D * 10 + U) < meta ? 'Te faltan bloques. ¡Agrega más!' : 'Tienes demasiados. ¡Quita algunos!');
+      }
+    });
+    ronda();
+  };
+
+  /* ---------- Tienda: paga el precio exacto ---------- */
+  JUEGOS.tienda = function (api, cfg) {
+    var rondas = cfg.rondas, r = 0, bandejaV = [];
+    var prod = el('div', { class: 'tienda-prod' }); api.body.appendChild(prod);
+    var total = el('div', { class: 'total' }); api.body.appendChild(total);
+    var bandeja = el('div', { class: 'bandeja', 'aria-label': 'Dinero que vas a pagar' }); api.body.appendChild(bandeja);
+    var dinero = el('div', { class: 'dinero' }); api.body.appendChild(dinero);
+    var acc = el('div', { class: 'centro', style: 'margin-top:14px' });
+    var bPagar = el('button', { class: 'btn-j', type: 'button' }, 'Pagar'); acc.appendChild(bPagar); api.body.appendChild(acc);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    function suma() { return bandejaV.reduce(function (a, b) { return a + b.v; }, 0); }
+    function dibujar() {
+      bandeja.innerHTML = bandejaV.length ? '' : '<span class="vacia">Toca las monedas y billetes para ponerlos aquí</span>';
+      bandejaV.forEach(function (m, k) {
+        var b = el('button', { type: 'button', 'aria-label': 'Quitar Q' + m.v }, fig({ fig: 'dinero', v: m.v, moneda: m.moneda, w: 84 }));
+        b.addEventListener('click', function () { bandejaV.splice(k, 1); dibujar(); tono([400], .05); });
+        bandeja.appendChild(b);
+      });
+      total.innerHTML = 'Llevas: <span style="color:#1f9d48">Q' + suma() + '</span>';
+    }
+    (cfg.dinero || [{ v: 1, moneda: true }, { v: 5 }, { v: 10 }, { v: 20 }]).forEach(function (m) {
+      var b = el('button', { type: 'button', 'aria-label': 'Agregar Q' + m.v }, fig({ fig: 'dinero', v: m.v, moneda: m.moneda, w: 110 }));
+      b.addEventListener('click', function () { bandejaV.push(m); dibujar(); tono([700], .05); });
+      dinero.appendChild(b);
+    });
+    function ronda() {
+      if (r >= rondas.length) return api.terminar();
+      var R = rondas[r]; bandejaV = []; fb.textContent = ''; fb.className = 'feedback';
+      prod.innerHTML = '<div class="prod-img">' + fig({ fig: 'producto', p: R.prod }) + '</div><div><div style="font-size:22px;font-weight:900;color:#2e3340;margin-bottom:8px">' + esc(R.nombre) + '</div><div class="etiqueta-precio">Q' + R.precio + '</div></div>';
+      dibujar();
+    }
+    bPagar.addEventListener('click', function () {
+      if (r >= rondas.length) return;
+      var p = rondas[r].precio, s = suma();
+      if (s === p) { api.acierto(); decir(fb, true, '¡Pago exacto! Pagaste Q' + p + '.'); confeti(api.body, 26); r++; setTimeout(ronda, 1500); }
+      else { api.error(); decir(fb, false, s < p ? 'Te faltan Q' + (p - s) + '.' : 'Te pasaste por Q' + (s - p) + '. Quita algo de la bandeja.'); }
+    });
+    ronda();
+  };
+
+  /* ---------- Gráfica: construye el pictograma ---------- */
+  JUEGOS.grafica = function (api, cfg) {
+    var cats = cfg.categorias, vals = cats.map(function () { return 0; });
+    var preg = el('div', { class: 'pregunta', style: 'font-size:22px' }, esc(cfg.q || 'Construye la gráfica con los datos de la tabla'));
+    api.body.appendChild(preg);
+    var tabla = el('div', { class: 'tabla-wrap tabla-conteo' });
+    tabla.innerHTML = '<table><thead><tr><th>' + esc(cfg.columna || 'Opción') + '</th><th>Votos</th></tr></thead><tbody>' +
+      cats.map(function (c) { return '<tr><td>' + esc(c.nombre) + '</td><td><b>' + c.valor + '</b></td></tr>'; }).join('') + '</tbody></table>';
+    api.body.appendChild(tabla);
+    var graf = el('div', { class: 'grafica' }); api.body.appendChild(graf);
+    var pilas = cats.map(function (c, k) {
+      var col = el('div', { class: 'columna-g' });
+      var pila = el('div', { class: 'pila' });
+      var bt = el('div', { class: 'botones' });
+      var m = el('button', { type: 'button', style: 'background:#ff4d4f', 'aria-label': 'Quitar en ' + c.nombre }, '-');
+      var p = el('button', { type: 'button', style: 'background:#34c759', 'aria-label': 'Agregar en ' + c.nombre }, '+');
+      m.addEventListener('click', function () { if (vals[k] > 0) { vals[k]--; dib(k); tono([420], .05); } });
+      p.addEventListener('click', function () { if (vals[k] < 6) { vals[k]++; dib(k); tono([620], .05); } });
+      bt.appendChild(m); bt.appendChild(p);
+      col.appendChild(pila); col.appendChild(el('div', { class: 'nombre' }, esc(c.nombre))); col.appendChild(bt);
+      graf.appendChild(col); return pila;
+    });
+    function dib(k) {
+      var h = ''; for (var j = 0; j < vals[k]; j++) h += '<svg viewBox="0 0 40 40">' + FIG._obj(cats[k].icono || 'manzana') + '</svg>';
+      pilas[k].innerHTML = h;
+    }
+    var acc = el('div', { class: 'centro', style: 'margin-top:12px' });
+    var b = el('button', { class: 'btn-j', type: 'button' }, 'Comprobar'); acc.appendChild(b); api.body.appendChild(acc);
+    var fb = feedbackEl(); api.body.appendChild(fb);
+    var preguntasDespues = cfg.preguntas || [];
+    b.addEventListener('click', function () {
+      var malas = cats.filter(function (c, k) { return vals[k] !== c.valor; });
+      if (!malas.length) {
+        api.acierto(); decir(fb, true, '¡Tu gráfica está perfecta!'); confeti(api.body, 30);
+        b.style.display = 'none';
+        if (preguntasDespues.length) setTimeout(function () { preguntasGrafica(); }, 1200);
+        else setTimeout(function () { api.terminar(); }, 1400);
+      } else { api.error(); decir(fb, false, 'Revisa: ' + malas.map(function (c) { return c.nombre; }).join(', ') + '. Cuenta otra vez los votos de la tabla.'); }
+    });
+    function preguntasGrafica() {
+      var i = 0, zona = el('div', { style: 'margin-top:18px' }); api.body.appendChild(zona);
+      function una() {
+        if (i >= preguntasDespues.length) return api.terminar();
+        var q = preguntasDespues[i]; zona.innerHTML = '';
+        zona.appendChild(el('div', { class: 'pregunta', style: 'font-size:22px' }, esc(q.q)));
+        var ops = el('div', { class: 'opciones' }), listo = false;
+        barajar(q.ops).forEach(function (op, j) {
+          var bt = el('button', { class: 'btn-op', type: 'button', style: 'background:' + COLORES[(j + 1) % COLORES.length] + ';font-size:21px' }, esc(op));
+          bt.addEventListener('click', function () {
+            if (listo || bt.disabled) return;
+            if (op === q.r) { listo = true; api.acierto(); decir(fb, true); i++; setTimeout(una, 1000); }
+            else { bt.disabled = true; bt.style.opacity = .35; api.error(); decir(fb, false); }
+          });
+          ops.appendChild(bt);
+        });
+        zona.appendChild(ops);
+        zona.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      una();
+    }
+  };
+
+  /* ==========================================================
+     BLOQUES DE CONTENIDO
+     ========================================================== */
+  function bloque(b) {
+    switch (b.t) {
+      case 'h3': return '<h3>' + esc(b.x) + '</h3>';
+      case 'p': return '<p class="justificado">' + b.x + '</p>';
+      case 'lista': return '<ul class="cuadradas">' + b.items.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>';
+      case 'ejemplo': return '<div class="tarjeta ejemplo">' + (b.titulo ? '<h4>' + esc(b.titulo) + '</h4>' : '') + (b.x ? '<p>' + b.x + '</p>' : '') + (b.fig ? '<div class="diagrama">' + fig(b.fig) + '</div>' : '') + '</div>';
+      case 'tarjeta': return '<div class="tarjeta">' + (b.titulo ? '<h4>' + esc(b.titulo) + '</h4>' : '') + b.x + '</div>';
+      case 'fig': return '<div class="diagrama">' + fig(b.fig) + (b.pie ? '<div class="pie-fig">' + esc(b.pie) + '</div>' : '') + '</div>';
+      case 'figs': return '<div class="diagrama" style="display:flex;flex-wrap:wrap;gap:18px;justify-content:center">' + b.figs.map(function (f) {
+        return '<div style="width:' + (b.ancho || 130) + 'px;text-align:center">' + fig(f) + (f.nombre ? '<div class="pie-fig"><b>' + esc(f.nombre) + '</b>' + (f.nota ? '<br>' + esc(f.nota) : '') + '</div>' : '') + '</div>';
+      }).join('') + '</div>';
+      case 'tabla': return '<div class="tabla-wrap"><table><thead><tr>' + b.cab.map(function (c) { return '<th>' + esc(c) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+        b.filas.map(function (f) { return '<tr>' + f.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>';
+      case 'video': return videoHtml(b);
+      default: return '';
+    }
+  }
+  function videoHtml(b) {
+    /* window.VIDEOS_OK lo genera build.mjs solo con los videos que YouTube confirmó como incrustables */
+    if (b.id && (window.VIDEOS_OK || {})[b.id]) {
+      return '<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/' + esc(b.id) + '" title="' + esc(b.titulo || 'Video') + '" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
+    }
+    var url = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(b.busqueda || '');
+    return '<div class="video-busqueda">' + I.lupa + '<div><p><b>Video sugerido:</b> ' + esc(b.titulo || b.busqueda) + '</p><p style="font-size:15px;color:#555">Aún no hay un video verificado para esta semana. Busca uno, revísalo antes de la clase y agrégalo en el archivo de datos.</p><a href="' + url + '" target="_blank" rel="noopener">Buscar en YouTube</a></div></div>';
+  }
+
+  /* ==========================================================
+     ESTRUCTURA DE PÁGINA
+     ========================================================== */
+  function header() {
+    var h = el('header', { class: 'header' });
+    var proyectosLinks = PROYECTOS.map(function (p) {
+      return '<a href="' + href('proyecto', p.u) + '">Proyecto U' + p.u + '</a><a href="' + href('galeria', p.u) + '">Galería de Evidencias U' + p.u + '</a>';
+    }).join('');
+    var unidadesLinks = UNIDADES.map(function (u) { return '<a href="' + href('unidad', u.n) + '">Unidad ' + u.n + '</a>'; }).join('');
+    h.innerHTML = '<div class="header-inner"><a class="brand" href="' + href('inicio') + '">' + esc(SITIO.nombreCorto || 'Mi clase') + '</a>' +
+      '<button class="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false">' + I.menu + '</button>' +
+      '<nav class="nav" aria-label="Menú principal">' +
+      '<div class="nav-item"><a class="nav-link" href="' + href('inicio') + '">Inicio</a></div>' +
+      '<div class="nav-item"><button class="nav-link" type="button" aria-expanded="false">Contenidos ' + I.abajo + '</button><div class="dropdown"><a href="' + href('unidades') + '">Unidades de Trabajo</a>' + unidadesLinks + '</div></div>' +
+      '<div class="nav-item"><button class="nav-link" type="button" aria-expanded="false">Proyectos ' + I.abajo + '</button><div class="dropdown"><a href="' + href('proyectos') + '">Unidades</a>' + proyectosLinks + '</div></div>' +
+      '</nav></div>';
+    var nav = h.querySelector('.nav'), ham = h.querySelector('.hamburger');
+    ham.addEventListener('click', function () {
+      var o = nav.classList.toggle('open'); ham.setAttribute('aria-expanded', o);
+      if (o) h.classList.add('scrolled'); else onScroll();
+    });
+    h.querySelectorAll('button.nav-link').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var it = b.parentNode, o = !it.classList.contains('open');
+        h.querySelectorAll('.nav-item.open').forEach(function (x) { x.classList.remove('open'); });
+        if (o) it.classList.add('open');
+        b.setAttribute('aria-expanded', o);
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!h.contains(e.target)) h.querySelectorAll('.nav-item.open').forEach(function (x) { x.classList.remove('open'); });
+    });
+    function onScroll() { if (!nav.classList.contains('open')) h.classList.toggle('scrolled', window.scrollY > 40); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return h;
+  }
+  function banner(titulo, opts) {
+    opts = opts || {};
+    return '<section class="banner"><h1 class="' + (opts.cursiva ? 'cursiva' : '') + '">' + esc(titulo) + '</h1>' +
+      (opts.sub ? '<p class="sub">' + esc(opts.sub) + '</p>' : '') +
+      (opts.frase ? '<p class="frase">' + esc(opts.frase) + '</p>' : '') +
+      '<div class="barra"></div></section>';
+  }
+  function banda(html, cursiva) { return '<section class="banda">' + (cursiva ? '<p class="cursiva">' + html + '</p>' : '<h2>' + html + '</h2>') + '</section>'; }
+  function pie() {
+    return '<footer class="pie"><div class="pie-inner"><a class="btn-blanco" href="' + href('inicio') + '"' + TARGET + '>Página Principal</a><a class="btn-blanco" href="' + href('unidades') + '"' + TARGET + '>Unidades de Trabajo</a></div></footer>';
+  }
+  function logoHtml() {
+    var src = SITIO.logo || 'assets/logo.png';
+    if (EMBED && SITIO.urlBase) src = SITIO.urlBase + src;
+    return '<img class="logo" src="' + esc(src) + '" alt="' + esc(SITIO.logoAlt || 'Logo del colegio') + '" onerror="this.outerHTML=\'<span class=&quot;logo-alt&quot;>' + esc(SITIO.logoAlt || 'LOGO').replace(/'/g, '') + '</span>\'">';
+  }
+  function desplegable(titulo, contenido, abierto) {
+    var id = 'd' + Math.random().toString(36).slice(2, 8);
+    return '<button class="desplegar-btn" type="button" aria-expanded="' + (abierto ? 'true' : 'false') + '" aria-controls="' + id + '"><span>' + titulo + '</span>' + I.abajo + '</button>' +
+      '<div class="desplegable' + (abierto ? ' abierto' : '') + '" id="' + id + '">' + contenido + '</div>';
+  }
+  function activarDesplegables(root) {
+    root.querySelectorAll('.desplegar-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var d = document.getElementById(b.getAttribute('aria-controls'));
+        var o = d.classList.toggle('abierto'); b.setAttribute('aria-expanded', o);
+      });
+    });
+  }
+
+  /* ---------------- páginas ---------------- */
+  var PAG = {};
+  PAG.inicio = function () {
+    var vis = '<div class="vm">' +
+      '<div class="vm-item"><div class="circulo">' + I.telescopio + '</div><h3>Visión</h3><p>' + esc(SITIO.vision) + '</p></div>' +
+      '<div class="vm-item"><div class="circulo">' + I.estrella + '</div><h3>Misión</h3><p>' + esc(SITIO.mision) + '</p></div></div>';
+    var perfil = '<h2>Perfil del Estudiante</h2><div class="perfil"><ul class="cuadradas">' + (SITIO.perfil || []).map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul><div class="icono-grande">' + I.personas + '</div></div>';
+    var bienvenida = desplegable('¡Bienvenidos a nuestro espacio digital educativo!', (SITIO.bienvenida || []).map(function (p) { return '<p class="justificado">' + esc(p) + '</p>'; }).join(''), false);
+    return {
+      banner: banner(SITIO.titulo, { cursiva: true, sub: SITIO.subtitulo }),
+      banda: '<section class="banda">' + logoHtml() + '</section>',
+      contenido: bienvenida + '<h2 style="margin-top:40px">Visión y Misión</h2>' + vis + perfil
+    };
+  };
+  PAG.unidades = function () {
+    var c = '<div class="circulos">' + UNIDADES.map(function (u) {
+      return '<a class="circulo-link" href="' + href('unidad', u.n) + '"' + TARGET + '><span class="circulo">' + u.n + '</span><span class="etiqueta">' + u.n + (u.n === 1 ? 'RA' : u.n === 2 ? 'DA' : 'RA') + ' UNIDAD</span></a>';
+    }).join('') + '</div>';
+    return { banner: banner('Unidades'), banda: banda('¡Haz click en los íconos para ingresar a la unidad correspondiente!', true), contenido: c };
+  };
+  PAG.unidad = function () {
+    var u = unidad(PAGINA.u);
+    var filas = u.semanas.map(function (s) {
+      var det = '<p><b>' + esc(s.titulo) + '</b></p><p class="justificado">' + esc(s.resumen || '') + '</p><a class="btn-ir" href="' + href('semana', u.n, s.n) + '"' + TARGET + '>Ingresar a la semana ' + s.n + '</a>';
+      return '<div class="semana-fila"><a class="circulo-link" href="' + href('semana', u.n, s.n) + '"' + TARGET + ' aria-label="Semana ' + s.n + '"><span class="circulo">' + s.n + '</span></a><div class="linea">' + desplegable('Semana ' + s.n, det, false) + '</div></div>';
+    }).join('');
+    var intro = u.competencia ? '<div class="tarjeta"><h4>Competencia de la unidad</h4><p>' + esc(u.competencia) + '</p></div>' : '';
+    return { banner: banner('Semanas de Trabajo'), banda: banda('Unidad ' + u.n + ': ' + esc(u.titulo)), contenido: intro + filas };
+  };
+  PAG.semana = function () {
+    var u = unidad(PAGINA.u), s = u.semanas.filter(function (x) { return x.n === PAGINA.s; })[0];
+    var html = '<section class="seccion" style="margin-top:0"><h2>Contenido</h2>' + (s.contenido || []).map(bloque).join('') + '</section>';
+    html += '<section class="seccion"><h2>Actividad Interactiva (Minijuegos)</h2><p>Lee las instrucciones de cada juego y presiona <b>¡A jugar!</b>. Puedes jugar las veces que quieras.</p><div id="zona-juegos"></div></section>';
+    if (s.clase) {
+      var c = s.clase;
+      html += '<section class="seccion"><h2>Actividad en clase</h2><h3>' + esc(c.titulo) + '</h3><p class="justificado">' + esc(c.descripcion) + '</p>' +
+        (c.materiales ? '<p><b>Materiales:</b></p><ul class="cuadradas">' + c.materiales.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ul>' : '') +
+        (c.pasos ? '<p><b>Pasos:</b></p><ol>' + c.pasos.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ol>' : '') +
+        (c.cierre ? '<div class="tarjeta ejemplo"><h4>Para cerrar</h4><p>' + esc(c.cierre) + '</p></div>' : '') + '</section>';
+    }
+    return {
+      banner: banner('Semana ' + s.n), banda: banda(esc(s.titulo)), contenido: html,
+      despues: function (root) {
+        var z = root.querySelector('#zona-juegos');
+        (s.juegos || []).forEach(function (j, k) { montarJuego(z, j, 'u' + u.n + 's' + s.n + 'j' + k); });
+      }
+    };
+  };
+  PAG.proyectos = function () {
+    var c = '<div class="circulos">' + PROYECTOS.map(function (p) {
+      return '<a class="circulo-link" href="' + href('proyecto', p.u) + '"' + TARGET + '><span class="circulo">' + p.u + '</span><span class="etiqueta">Proyecto U' + p.u + '</span></a>';
+    }).join('') + '</div>';
+    return { banner: banner('Unidades'), banda: banda('¡Haz click en los íconos para ingresar al proyecto correspondiente!', true), contenido: c };
+  };
+  PAG.proyecto = function () {
+    var p = PROYECTOS.filter(function (x) { return x.u === PAGINA.u; })[0];
+    var clave = 'avance:u' + p.u, marcados = store.get(clave, []);
+    var secciones = '<section class="banda"><div class="banda-icono">' + I.bombilla + '<h2>Objetivo</h2></div></section>' +
+      '<div class="fase-contenido"><div class="obj">Objetivo General del Proyecto</div><p class="justificado">' + esc(p.objetivo) + '</p></div>';
+    p.fases.forEach(function (f) {
+      secciones += '<section class="banda"><h2>' + esc(f.nombre) + '</h2></section><div class="fase-contenido">' +
+        '<div class="obj">Objetivo:</div><p class="justificado">' + esc(f.objetivo) + '</p>' + (f.parrafo ? '<p class="justificado">' + esc(f.parrafo) + '</p>' : '') +
+        '<div class="instr">Instrucciones</div><ul class="cuadradas">' + f.instrucciones.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
+        (f.extra || []).map(function (b) {
+          if (b.t === 'avance') return '<div class="instr">' + esc(b.titulo) + '</div><ul class="checklist" data-avance>' + p.avance.map(function (a, k) {
+            return '<li><label><input type="checkbox" data-k="' + k + '"' + (marcados.indexOf(k) >= 0 ? ' checked' : '') + '> <span>' + esc(a) + '</span></label></li>';
+          }).join('') + '</ul>';
+          if (b.t === 'rubrica') {
+            var tot = p.rubrica.reduce(function (a, r) { return a + r[2]; }, 0);
+            return '<div class="instr">' + esc(b.titulo) + '</div><div class="tabla-wrap"><table><thead><tr><th>Criterio</th><th>Qué se observa</th><th>Puntos</th></tr></thead><tbody>' +
+              p.rubrica.map(function (r) { return '<tr><td><b>' + esc(r[0]) + '</b></td><td>' + esc(r[1]) + '</td><td>' + r[2] + '</td></tr>'; }).join('') +
+              '<tr><td colspan="2"><b>Total</b></td><td><b>' + tot + '</b></td></tr></tbody></table></div>';
+          }
+          if (b.t === 'cronograma') return '<div class="instr">' + esc(b.titulo) + '</div><div class="tabla-wrap"><table><thead><tr><th>Semana</th><th>Fase</th><th>Actividad</th></tr></thead><tbody>' +
+            p.cronograma.map(function (r) { return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td><td>' + esc(r[2]) + '</td></tr>'; }).join('') + '</tbody></table></div>';
+          if (b.t === 'entregables') return '<div class="instr">' + esc(b.titulo) + '</div><ul class="cuadradas">' + p.entregables.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
+          return bloque(b);
+        }).join('') + '</div>';
+    });
+    secciones += '<section class="banda"><h2>GALERÍA DE EVIDENCIAS</h2><div style="margin-top:16px"><a class="btn-blanco" href="' + href('galeria', p.u) + '"' + TARGET + '>Ir a la Galería</a></div></section>';
+    return {
+      banner: banner(p.titulo, { cursiva: true, frase: '«' + p.frase + '»' }),
+      completo: secciones,
+      despues: function (root) {
+        root.querySelectorAll('[data-avance] input').forEach(function (c) {
+          c.addEventListener('change', function () {
+            var arr = []; root.querySelectorAll('[data-avance] input').forEach(function (x) { if (x.checked) arr.push(+x.dataset.k); });
+            store.set(clave, arr);
+          });
+        });
+      }
+    };
+  };
+  PAG.galeria = function () {
+    var p = PROYECTOS.filter(function (x) { return x.u === PAGINA.u; })[0];
+    var slots = (p.galeria || []).map(function (g) { return '<div class="galeria-slot">' + I.imagen + '<b>' + esc(g) + '</b><span>Espacio para foto</span></div>'; }).join('');
+    return {
+      banner: banner('Galería de Evidencias U' + p.u, { cursiva: true }),
+      banda: banda(esc(p.titulo)),
+      contenido: '<p class="justificado">' + esc(p.galeriaTexto || 'Aquí se publican las fotografías del trabajo de los estudiantes.') + '</p><div class="galeria-grid">' + slots + '</div>'
+    };
+  };
+
+  function unidad(n) { return UNIDADES.filter(function (u) { return u.n === n; })[0]; }
+
+  /* ---------------- render ---------------- */
+  function render() {
+    var root = document.getElementById('app');
+    var p = PAG[PAGINA.tipo]();
+    root.innerHTML = '';
+    if (EMBED) {
+      document.body.classList.add('embed');
+      var c = el('main', { class: 'contenido' });
+      c.innerHTML = p.completo || p.contenido;
+      if (p.completo) { root.innerHTML = p.completo; }
+      else root.appendChild(c);
+    } else {
+      document.body.insertBefore(header(), root);
+      root.innerHTML = p.banner + (p.completo ? p.completo : (p.banda || '') + '<main class="contenido">' + p.contenido + '</main>') + pie();
+    }
+    activarDesplegables(root);
+    if (p.despues) p.despues(root);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
+
+  /* expuesto para pruebas */
+  window.__clase = { FIG: FIG, JUEGOS: JUEGOS, store: store };
+})();
+
+</script>
+</body>
+</html>
